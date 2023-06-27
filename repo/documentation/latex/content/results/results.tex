@@ -1,0 +1,112 @@
+
+\chapter{Resultate}\label{results}
+
+Aus diesem Projekt entspringen zwei Resultate. Das erste ist ein bereinigter
+Datensatz der gesammelten Texte aus dem Vorprojekt. Das zweite ist die Extraktion
+und die Aggregation der Zitate nach Geschlecht und Portal aus den verbleibenden Daten.
+
+\section{Datenbereinigung}
+
+Die Datenbereinigung resultierte in einem 5.5\% reduzierten Datensatz mit insgesamt 351'021 Artikeln ohne Duplikate.
+Die Abbildung \ref{datenbereinigung} zeigt den Datenstand vor und nach der Entfernung von gleichen oder sehr ähnlichen Texten.
+Es war beruhigend festzustellen, dass die Datenbank insgesamt nur wenige Duplikate enthielt.
+
+So fanden wir bei Blick 2'430, bei SRF 2'956, bei Watson 14'895 und bei 20 Minuten 351 doppelte Artikel.
+
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1\linewidth]{./images/datenbereinigung.png}
+		\caption{Anzahl Artikel vor und nach der Datenbereinigung}
+		\label{datenbereinigung}
+	\end{center}
+\end{figure}
+
+\section{Extraktion und Aggregation der Zitate}
+
+Die folgenden zwei Abschnitte beschreiben die Verteilung der gefundenen Zitate pro
+Nachrichtenportal und in einem weiteren Schritt zusätzlich pro Geschlecht. Der letztere Teil
+beantwortet eigentliche Forschungsfrage zum \gl{gendergap}.
+
+\subsection{Verteilung der Zitate pro Nachrichtenportal}
+
+Das Ergebnis der in Kapitel \ref{citation-extraction} beschriebenen Extraktion der Zitate
+resultierte in einer neuen MongoDB \gl{collection} \enquote{analyzed\_articles}. Diese enthält
+für jeden Artikel der \gl{collection} \enquote{unique\_articles} die wichtigsten Artikelinformationen
+plus die gefundenen Zitate. Insgesamt fanden wir 133'443 Zitate über alle
+Nachrichtenportale. Die Grafik \ref{count-citations-per-portal} zeigt die Verteilung über die
+Portale.
+
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1\linewidth]{./images/plot_anzahl_zitate_pro_portal.PNG}
+		\caption{Anzahl gefundene Zitate}
+		\label{count-citations-per-portal}
+	\end{center}
+\end{figure}
+
+Der Algorithmus fand am meisten Zitate von Blick, gefolgt von SRF und Watson und am wenigsten
+von 20min. Diese Verteilung ist nicht überraschend, wenn man die Verteilung der Anzahl Artikel bedenkt (vgl. Abbildung \ref{datenbereinigung}).
+
+Eine spannende Erkenntnis ist im Diagramm in Abbildung \ref{citations-per-article} zu sehen,
+das die Anzahl gefundener Zitate pro Portal pro Artikel darstellt. Mit einem Quotienten von
+0.44 scheint SRF deutlich häufiger Zitate in seinen Artikeln zu verwenden als die anderen. Blick und 20min weisen
+mit 0.38 resp. 0.36 einen ähnlichen Wert auf. Watson weist mit 0.33 Zitate den kleinsten Wert auf.
+
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1\linewidth]{./images/plot_zitate_pro_artikel.PNG}
+		\caption{Anzahl gefundene Zitate pro Artikel pro Nachrichtenportal}
+		\label{citations-per-article}
+	\end{center}
+\end{figure}
+
+
+
+\subsection{Verteilung der Zitate pro Nachrichtenportal und pro Geschlecht}
+
+Bevor wir in die Auswertung zum \gl{gendergap} in den Nachrichtenportalen eintauchen, möchten
+wir nochmals betonen, dass die Zahlen ausschliesslich die auf unserem Datensatz gemessenen Resultate darstellen
+und diese eine potenziell grosse Ungenauigkeit aufweisen (vgl. Kapitel \ref{quality-assurance}).
+
+Gruppiert nach dem identifizierten Geschlecht ergibt sich eine Verteilung, die auf eine starke
+Übervertretung von Zitaten von Männern hindeutet, wie die Abbildung \ref{sum-citations-stacked} zeigt.
+So scheinen alle Nachrichtenportale eine ähnliche Verteilung aufzuweisen, in der gut zwei Drittel
+der Zitate von Männern stammen und nur ein Fünftel oder ein Viertel von Frauen. Der Rest ist entsprechend
+\enquote{unbekannt} zugeordnet. Diese Zuordnung bedeutet, dass der Algorithmus das Geschlecht der zitierten Person nicht ausfindig machen konnte.
+Das arithmetische Mittel über die vier Portale liegt bei den Männern bei 65.6\% und bei den Frauen bei 21.2\%. Hinzu kommen 13.2\% der Kategorie \enquote{unbekannt}.
+Diese Werte sind in der Abbildung \ref{sum-citations-stacked} zwischen den Portalen mit dem Label \enquote{Mittelwert} aufgelistet.
+Aufgrund der limitierten Qualität (beschrieben im Kapitel \ref{quality-assurance})
+können die kleinen Unterschiede nicht zum exakten Vergleich oder Ranking zwischen den Portalen verwendet werden.
+
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1.1\linewidth]{./images/plot_zitate_pro_portal_geschlecht_stacked_prozentual.PNG}
+		\caption{Prozentuale Anzahl Zitate pro Nachrichtenportal}
+		\label{sum-citations-stacked}
+	\end{center}
+\end{figure}
+
+Aufgrund dieser Resultate lässt sich nun endlich der \gl{gendergap} anhand der definierten Formel \ref{ggt-formula}
+bestimmen. Dieser ist pro Portal in der Abbildung \ref{gender-gap-per-portal} dargestellt.
+
+Sie zeigt, dass der Algorithmus bei Watson mit 57.7\% den grössten \gl{gendergap} messen konnte. SRF und Blick folgen mit 52.24\%
+und 49.59\% respektive. Den kleinsten Gap fand er bei den Artikeln von 20min mit 41.77\%. Das arithmetische
+Mittel über die Portale lag bei dieser Kennzahl bei 50.34\%, gekennzeichnet als \enquote{Mittelwert} in der Grafik.
+
+Unter Berücksichtigung der Limitationen (vgl. Abschnitt \ref{limitations}) bedeutet diese Zahl, 
+dass Frauen in unserem Datensatz im Schnitt 50.34\% weniger häufig zitiert werden als Männer.
+
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1\linewidth]{./images/plot_gender_gap_pro_portal.PNG}
+		\caption{Gender Gap pro Nachrichtenportal}
+		\label{gender-gap-per-portal}
+	\end{center}
+\end{figure}
+
+\input{content/results/quality-assurance.tex}

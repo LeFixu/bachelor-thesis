@@ -1,0 +1,31 @@
+% Er umfasst eine halbe bis eine Seite bzw. 150–250 Wörter.
+
+% Worum geht es?
+% Datenanalyse zum Bestimmen des Gender Gaps
+% Basierend auf Daten des Vorprojekts
+% Purpose?
+
+Die Bachelor Thesis \enquote{Gender Gap Tracker für die Schweizer Medien} untersucht den \gl{gendergap}
+in textbasierten deutschschweizer Online-Medien anhand der Anzahl Zitate von Männern und Frauen.
+Die Datengrundlage bildet eine Datenbank mit über 350'000 Artikeln aus vier Nachrichtenportalen, die in einem separaten
+Vorprojekt \cite{project2} mittels Webcrawling aufgebaut wurde.
+Die Inspiration für dieses Projekt und das gewählte Vorgehen kam von der kanadischen Studie \citetitle{gender_gap_tracker}
+\cite{gender_gap_tracker}.
+
+% Wie bist du vorgegangen?
+Zum Ermitteln des Gender Gaps setzt diese Arbeit - in Anlehnung an die Vorbildsstudie - auf \along{ml} basierte Werkzeuge aus dem Bereich
+des \along{nlp}s. Die softwarebasierte Auswertung verwendet ein Sprachmodell von \gl{spacy}
+um mithilfe von \ashort{ner}, \ashort{pos}, \gl{cr} und \gl{dependency-parsing} Zitate und Personen aus den
+Texten zu extrahieren. Zum Überprüfen der Qualität dienen manuell erstellte Test Sets, anhand derer die
+Performance der Software gemessen werden kann.
+
+% Was sind deine wichtigsten Ergebnisse?
+Die Resultate zeigen einen mittleren \gl{gendergap} von 50.34\%, wobei der kleinste bei 41.77\% und der grösste
+bei 57.70\% liegt. Das bedeutet, dass der Algorithmus im Schnitt 50.34\% weniger Zitate von Frauen gefunden hat als von Männern.
+
+
+% Was bedeuten deine Ergebnisse?
+Unter Berücksichtigung der Limitationen (Kapitel \ref{limitations}) bedeuten diese Ergebnisse, dass in der Deutschschweiz ein
+signifikanter \gl{gendergap} in den textbasierten Online-Medien vorliegt und Frauen deutlich unterrepräsentiert sind, 
+gemessen an der Anzahl der gefundenen Zitate. Der Unterschied ist damit grösser, als in den meisten anderen Studien, 
+die für diese Arbeit zum Vergleich herbeigezogen wurden (Kapitel \ref{state-of-the-art}).

@@ -1,0 +1,122 @@
+\section{Methoden und Konzepte zur technischen Umsetzung}
+
+\subsection{Grundsätzliches Vorgehen}
+
+% Einleitung + Methode P2
+Das grundsätzliche Vorgehen (Methodik) wurde bereits im Vorprojekt
+\cite{project2} definiert. In diesem wurden vier technische
+Hauptaufgaben identifiziert, die untereinander keine oder wenige
+Abhängigkeiten aufweisen. Diese resultieren in Funktionen, die auf
+den gesammelten Texten oder dem Output der vorherigen Funktion operieren.
+Die Abbildung \ref{dag-tasks} stellt diese Aufgaben als \gl{dag} dar.
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1\linewidth]{./images/Teilaufgaben.jpg}
+		\caption{\gl{dag} der Hauptaufgaben im Projekt}
+		\label{dag-tasks}
+	\end{center}
+\end{figure}
+
+% Zitate extrahieren
+Das Extrahieren der Zitate ist von allen Teilaufgaben am unklarsten.
+Teil dieser Aufgabe ist das Erkennen von eindeutigen Mustern in Zitaten
+und deren Ausnutzung zur Extraktion. Der kanadische \along{ggt} (\ashort{ggt}) kann dabei
+Inspiration liefern. Weil das deutsche Sprachmodell fürs \gl{dependency-parsing}
+aber andere Labels verwendet als das französische und englische,
+welche die Autorinnen und Autoren des kanadischen \gl{ggt} verwendet haben,
+muss dieser Teil neu erfunden werden (vgl. Abschnitt \ref{citation-extraction}).
+
+% Personen extrahieren
+Die Funktion zum Extrahieren der Personen (und dazugehörigen Beschreibungen) 
+wird die Software mithilfe der \gl{pos} Tagging und \gl{ner} Funktionen des \gl{spacy} Parsers umsetzen.
+Die grösste Herausforderung bei dieser Aufgabe ist das \gl{cr}.
+Denn für das Bestimmen des Geschlechts einer Person ist es hilfreich,
+möglichst viele Aliase, Artikel und Pronomen zu kennen (vgl. Kapitel \ref{people-extraction}).
+
+% Geschlechter bestimmen der Personen
+Zum Bestimmen des Geschlechts einer Person können alle zugehörigen Informationen
+verwendet werden. Am aussagekräftigsten sind Artikel und Pronomen, wobei die Zuverlässigkeit
+ihrer Extraktion nicht sehr hoch ist. Ein weiteres Indiz für das Geschlecht gibt
+der Vorname. Dazu wollen wir das Namensregister vom Bund zum Abfragen verwenden
+\cite{bfs-vornamen-maennlich,bfs-vornamen-weiblich}. Als Backup sollen APIs aus dem
+Internet dienen. Diese haben ein Rate-Limit und können nicht zu häufig abgefragt werden
+(vgl. Abschnitt \ref{identify-gender}).
+
+% Personen den Zitaten zuordnen
+Als letzte Teilaufgabe gilt es, die Zitate den extrahierten Personen zuzuordnen.
+Dazu wird die Position im Text und Textähnlichkeit des Namens im Zitat
+und aller Eigenschaften der extrahierten Person verwendet.
+
+% Auswertung / Aggregation
+Die schlussendliche Aggregation führt für alle Artikel in der Datenbank
+die bereits beschriebenen Funktionen aus und speichert das Resultat wie im 
+(vgl. Kapitel \ref{db-design}).
+
+% GG Formula
+Nachdem die Software alle rund 350'000 Artikel analysiert hat, gilt es diese
+auszuwerten. Das Ziel dieser Arbeit ist das Bestimmen des \gl{gendergap}s,
+dem Unterschied im Raum, den Männer und Frauen in den Medien einnehmen.
+Um diese klar mit einer Zahl benennen zu können, verwenden wir die abstrakte
+Kennzahl \gl{gendergap} (vgl. Abschnitt \ref{ggt-formula-section}).
+
+\subsection{Die Kennzahl \textsl{Gender Gap}}\label{ggt-formula-section}
+
+Um den \gl{gendergap} zwischen unterschiedlichen Arbeiten vergleichen zu können,
+definieren wir den \gl{gendergap} wie folgt.
+Die Kennzahl repräsentiert den Unterschied im Raum, der den beiden Geschlechtern \enquote{männlich} und
+\enquote{weiblich} gegeben wird, gemessen am kombinierten Anteil der Männer und Frauen.
+Der \gl{gendergap} liegt deshalb stets zwischen 0 und 1,
+wobei ein \gl{gendergap} von 0 eine Verteilung von 50:50 auf Männer und Frauen bedeutet
+und ein \gl{gendergap} von 1 eine Verteilung des gesamten Raums auf ein Geschlecht.
+
+Im Fall von dieser Arbeit sind mit \enquote{Raum} die Anzahl Zitate
+gemeint. Die Abstraktion \enquote{Raum} ist deshalb nützlich, weil sich damit die \gl{gendergap}s
+unterschiedlicher Arbeiten vergleichen lassen. So können wir beispielsweise den \gl{gendergap} des \enquote{Body Counts}
+der Ringier EqualVoice Initiative \cite{ringier-equalvoice} mit unserem \gl{gendergap} anhand der
+Anzahl Zitate vergleichen. Wir machen uns dies im Kapitel \ref{interpretation} zunutze, um die Ergebnisse
+mit den relevantesten Arbeiten aus dem Kapitel \ref{state-of-the-art} zu vergleichen.
+Keine der beigezogenen relevanten Arbeiten verfügt über eine Methodik, Formel oder Kennzahl,
+mit der ein ähnlicher Vergleich möglich wäre. Die Untenstehende Formel ist ein Vorschlag,
+diese Lücke zu füllen.
+
+\begin{figure}[H]
+    \begin{equation}
+        Gender \, Gap = \left|\frac{RF - RM}{RF + RM}\right|
+    \end{equation}
+    \parbox{\linewidth}{Wobei~$RF$ der Raum ist, der Frauen gegeben wird und~$RM$ derjenige, der den Männern gegeben wird.}
+    \caption{Formel zur Berechnung des \gl{gendergap}s}
+    \label{ggt-formula}
+\end{figure}
+
+\subsection{Die verschiedenen Arten von Zitaten}\label{types-of-citations}
+
+Für die Unterscheidung der Arten von Zitaten orientiert sich diese Arbeit
+an der Vorbildstudie \citetitle{gender_gap_tracker} \cite{gender_gap_tracker}. Diese unterscheidet im Grundsatz
+zwei Arten von Zitaten, die
+\begin{enumerate}
+    \item \textsl{Syntaktischen} und die
+    \item \textsl{Schwimmenden Zitate}.
+\end{enumerate}
+
+Die Begründung für diese Unterscheidung ist im Kapitel \ref{ggt-method-citation} genauer
+beschrieben. Was sind also \textsl{Syntaktische} und \textsl{Schwimmende} Zitate? \textsl{Syntaktische Zitate}
+sind diejenigen Satzstrukturen, die alle Informationen beinhalten, die zu einem Zitat gehören:
+\begin{enumerate}
+    \item Ein Zitat in der direkten oder indirekten Rede
+    \item Ein Subjekt, das zitiert wurde
+    \item Ein Zitat-einleitendes Verb
+\end{enumerate}
+Ein Beispiel dafür ist \enquote{Der Bundesrat Berset versicherte, dass genügend Masken vorhanden seien.} oder \enquote{Der Bundesrat Berset versicherte: \enquote{Es sind genügend Masken vorhanden.}}.
+In diesem Beispiel ist das Zitat \enquote{dass genügend Masken vorhanden seien} beziehungsweise \enquote{Es sind genügend Masken vorhanden}. Das Subjekt ist in beiden Fällen
+\enquote{Der Bundesrat Berset}. Auch das einleitende Verb ist in diesen Fällen gleich, nämlich \enquote{versicherte}.
+
+\textsl{Schwimmende Zitate} finden sich besonders in Texten, in denen eine Person mehrfach zitiert und das Subjekt nicht jedes Mal wiederholt wird.
+Um beim vorherigen Beispiel zu bleiben, können wir uns eine Weiterführung des Textes so vorstellen: \enquote{Der Bundesrat Berset versicherte, dass genügend Masken vorhanden seien.
+\enquote{Es sind genug für alle da.}}. Das Zitat \enquote{\enquote{Es sind genug für alle da.}} \textsl{schwimmt} im Text ohne selbst von einem Verb eingeleitet oder im selben Satz
+von einem Subjekt begleitet zu werden. Für uns Menschen ist damit implizit klar, dass das Zitat zu der zuvor zitierten Person gehört.
+Für einen Algorithmus sind solche impliziten Muster schwieriger zu erkennen und zu verbinden, weshalb solche \textsl{Schwimmenden Zitate} anders behandelt werden
+müssen.
+
+
+\input{content/methods/technologies.tex}

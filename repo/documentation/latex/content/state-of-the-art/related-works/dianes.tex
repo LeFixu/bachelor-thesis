@@ -1,0 +1,65 @@
+\subsection{DIANES: A DEI Audit Toolkit for News Sources}
+Die Autoren und Autorinnen der Arbeit \citetitle{10.1145/3477495.3531660} \cite{10.1145/3477495.3531660} haben ein Audit Toolkit entwickelt,
+um Journalist:innen und Reporter:innen von Nachrichtenportalen dabei zu helfen, 
+den Anteil der Quellenvielfalt (z.B. Geschlecht und Rasse) für Zitate in ihren Artikeln zu verbessern.
+Laut den Verfasser:innen der Arbeit wird in professionellen Nachrichtenmedien immer betont, wie wichtig die Vielfalt der Perspektiven ist, 
+aber in der Praxis wird dem nur wenig Beachtung geschenkt.
+Daher sind die Nachrichtenmedien unter ethische Kritik geraten im Rahmen der neuen Normen für Vielfalt, Gleichberechtigung und Integration, 
+im englischen \gl{dei}.
+Das Toolkit soll die Medienschaffenden dabei unterstützen, diesen Normen mehr Beachtung zu schenken.
+\gl{dianes} ist ein \gl{dei} Toolkit, das eine NLP-Pipeline im Backend zur Extraktion von Zitaten, Sprechern, Titeln und Organisationen
+aus Nachrichtenartikeln verwendet und diese in Echtzeit verarbeitet. 
+
+Im Frontend unterstützt \gl{dianes} eine Vielzahl von Benutzeranfragen zum \gl{dei} Audit auf der Grundlage der im Backend extrahierten Informationen. 
+Auf dem Artikel Dashboard können Medienschaffende ihren Artikeltext als Entwurf eingeben und 
+dann die entsprechenden Informationen zur Quellenvielfalt in diesem Artikel abrufen.
+Das Dashboard der Quellenvielfalt ist dazu da, die \gl{dei} Daten für einen ausgewählten Zeitraum von allen Artikeln zu visualisieren.
+
+Das \gls{api} implementiert die Möglichkeit, alle Zitate, Namen, Geschlechter sowie Titel der Sprecher:innen zu extrahieren, 
+die in Artikeltexten vorkommen, welche der \gls{api} gesendet werden.
+
+% Backend Text
+Das Backend Modul nimmt den Nachrichtenartikel als Input und extrahiert die Zitate und Sprecher:innen mit ihren Titeln und
+prognostiziert dann Geschlecht und Rasse/Ethnie dieser zitierten Person.
+Das Modul ist in folgende vier Stages unterteilt, von welchen die ersten zwei Stages  
+die Standford CoreNLP Bibliothek \footnote{https://stanfordnlp.github.io/CoreNLP/} nutzen.
+
+\subsubsection{Text Processing}
+In der \enquote{Text Processing} Phase werden zunächst unnötige Informationen aus dem Text gefiltert wie \ashort{xml} Tags.
+Nach dem Filtern wird der Text tokenisiert und im nächsten Schritt wird \gl{pos} Tagging angewendet um z.B. zu bestimmen,
+ob die einzelnen Wörter (Tokens) Verben oder Substantive sind. 
+Danach wird eine \gl{lemming} durchgeführt, um jedes Wort auf seine Grundform zu reduzieren.
+
+\subsubsection{NLP Analysis}
+Der \enquote{NLP Analysis} Schritt enthält die folgenden spezifischen Komponenten.
+Die Satzspaltung teilt den Text in Sätze auf. Dies wird anhand des CoreNLP Regelwerks gemacht.
+Mit \gl{ner} werden Personen, Titel und Organisationen im Text bestimmt.
+Dependency Parsing analysiert die grammatikalischen Beziehungen zwischen Wörtern in einem Satz 
+und extrahiert textuelle Beziehungen auf Basis der Abhängigkeiten.
+Die \gl{cr} findet Erwähnungen der gleichen Entität in einem Text, z.B. wenn 
+sich \enquote{Anne} und \enquote{sie} auf dieselbe Person beziehen.
+\gl{kbp} wird verwendet um Titel und Organisationen einer Person zu finden, wenn diese
+im Text vorkommen. 
+
+\subsubsection{Annotations}
+In diesem Teil werden Annotationen erstellt für Zitate, Sprecher:innen und ihre Titel und 
+Organisationen auf der Grundlage der vorherigen \gl{nlp} Analyse. 
+Wenn bei einem Zitat ein Anführungszeichen oder Schlusszeichen fehlt, hat CoreNLP den Text bis 
+zum nächsten Anführungszeichen/Schlusszeichen des nächsten Zitates als Zitat Inhalt deklariert, was die Genauigkeit der Zitat-Auflösung verringern kann.
+Um dieses Problem zu umgehen, arbeiteten die Entwickler:innen mit der Anzahl Wörter in vorgängigen Zitaten.
+Zitate mit über 100 Wörter oder unter fünf Wörter wurden für die Auswertung ausgeschlossen.
+Die Entwickler:innen machten die Erfahrung, dass CoreNLP Probleme hatte und oft die falsche Person zum Zitat zuwies.
+
+\subsubsection{Representation Recognition:}
+Diese Phase dient dazu Geschlecht und Rasse/Ethnie der zitierten Person zu definieren.
+Diese zwei Repräsentationsattribute von \gl{dei} sind die entscheidenden Informationen zum Verständnis der Repräsentativität der Nachrichtenbeschaffung von \gl{dianes}.
+Das Geschlecht wurde mit der Gender API \footnote{https://gender-api.com/} bestimmt.
+Es gibt viel weniger existierende Arbeiten zur Vorhersage der Rasse/Ethnizität
+einer Person mit einem Namen, und die Aufgabe ist anspruchsvoller als Geschlechtserkennung.
+Darum wurde zur Vorhersage der Rasse/Ethnizität einer Person ein eigenes \gl{ml} Model implementiert und trainiert, 
+welches als Input den Namen der Person braucht.
+Der Datensatz, der zum Trainieren des Rassendetektors verwendet wurde, stammt von dem United States Census Bureau aus den Jahren 2000 und 2010. 
+Er enthält insgesamt 151'670 eindeutige Namen in sechs Kategorien (White, African, American, American Indian, Alaska Native, Asian, Native
+Hawaiian und Other Pacific Islander).
+
+\gl{dianes} wurde zum Zeitpunkt der Veröffentlichung der Arbeit von mehreren Redaktionen in der Praxis getestet.

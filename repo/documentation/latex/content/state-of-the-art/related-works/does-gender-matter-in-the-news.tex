@@ -1,0 +1,42 @@
+\subsection{Does Gender Matter in the News? Detecting and Examining Gender Bias in News Articles}
+
+In ihrer Arbeit \citetitle{does-gender-matter-in-the-news} \cite{does-gender-matter-in-the-news} erforschten \citeauthor{does-gender-matter-in-the-news}
+den impliziten und expliziten Bias in Abstracts von Nachrichtenartikeln aus zwei Datensets (\gl{mind}\footnote{https://msnews.github.io/}, \gl{ncd}
+\footnote{https://www.kaggle.com/rmisra/news-category-dataset}) auf Bias zwischen den
+Geschlechtern. Im Speziellen untersuchten sie dabei den \gl{gender-bias-distribution}, den \gl{gender-bias-content} und den \gl{gender-bias-wording}.
+
+Das \gl{mind} Dataset besteht aus ungefähr 160'000 englischsprachigen Nachrichtenartikeln mit Text, Titel, Abstract und Kategorien. Das Datenset enthält
+auch anonymisierte User Logs, die für diese Auswertung jedoch irrelevant sind. \gl{ncd} ist ein Kaggle Dataset bestehend aus etwa 210'000 englischsprachigen
+Schlagzeilen mit dazugehörigen Abstracts.
+
+% Methodik mit Attribute words erklären
+
+Im ersten Experiment untersuchten die Forschenden den \gl{gender-bias-distribution}. Dazu teilten sie die Abstracts beider Datensets
+in drei Kategorien auf: Männlich (M), Weiblich (F) und Neutral (N) und verglichen die Anzahl Abstracts in den jeweiligen Kategorien
+anschliessend tabellarisch. Um die Aufteilung vorzunehmen, bedienten sie sich eines Datensets von 465 geschlechterbezogenen \gl{possessive-noun}s und
+357 geschlechterspezifischen \gl{attribute-word}s. Mit diesem Experiment konnten sie im \gl{mind} Datenset einen klaren \gl{gender-bias-distribution}
+von 53.9\% zugunsten der Männer nachweisen. Das andere Datenset schnitt mit einem \gl{gender-bias-distribution} von 14.5\% zugunsten der Männer nur
+deshalb besser ab in der absoluten Verteilung, weil Frauen in den Kategorien \enquote{Style \& Beauty},
+\enquote{Parenting} und \enquote{Entertainment} stark übervertreten sind, was auf einen Bias in der Art der Präsentation von Frauen hindeutet,
+wie auch das zweite Experiment zeigt.
+
+Dieses soll den \gl{gender-bias-content} messen, in dem es die Häufigkeit vergleicht, mit der Frauen und Männer in den Kontexten Familie und Karriere
+vorkommen. Dazu setzen sie zwei weitere \gl{attribute-word}s Sets ein, mit denen sie die geschlechterbezogenen Abstracts den gefragten
+Kontexten zuweisen können. Das Resultat zeigt, dass Frauen im \gl{mind} Dataset 16.21\% weniger häufig mit Karriere assoziiert werden, als Männer. Im NCD Datensatz
+ist der Unterschied mit 8.51\% halb so gross. Im Gegenzug werden sie häufiger im Kontext von Familie beschrieben. Im \gl{mind} Datensatz 4.1\% häufiger und im
+NCD Datensatz 3.19\% häufiger. Diese Erkenntnis wird auch durch das dritte Experiment gestützt.
+
+In diesem Experiment untersuchen die Forschenden basierend auf Sentiment Analysis und \gl{cra} den \gl{gender-bias-wording}.
+Mithilfe des Tools \gl{vader} extrahierten sie aus den nach Geschlecht aufgeschlüsselten Abstracts diejenigen mit positiver Benotung des Algorithmus.
+Anschliessend liessen sie den \gl{cra} die 20 wichtigsten Wörter in den jeweiligen Sammlungen als Graph darstellen. In diesem ist die Wichtigkeit des
+jeweiligen Wortes als Grösse der Knoten ersichtlich. Wörter, die in denselben Kontexten vorkommen sind durch Kanten verbunden.
+Das Resultat deutet auf einen starken \gl{gender-bias-wording} hin. Während die wichtigsten 20 Wörter bezogen auf Männer \enquote{president},
+\enquote{manager} und \enquote{mayor} beinhalten, beginnt die Top 20 Liste bei den Frauen mit \enquote{wife}, \enquote{mother} und \enquote{beloved}.
+Dieses Experiment stützt also auch die Erkenntnis aus dem zweiten Experiment, dass Frauen in den Medien besonders im Kontext der Familie,
+ihres Ehemannes oder ihres Körpers porträtiert werden und nicht wie die Männer im Zusammenhang mit Politik, Wirtschaft oder Karriere.
+
+Um die oben beschriebenen Experimente durchzuführen haben \citeauthor{does-gender-matter-in-the-news} einiges an Datenaufbereitung betrieben.
+Damit künftige Forschende einen einfacheren Zugang zu solchen Daten haben, veröffentlichten sie diese im Rahmen der Arbeit für die freie Verwendung
+in der Forschung \footnote{https://github.com/daconjam/Detecting\_Gender\_Bias}.
+
+

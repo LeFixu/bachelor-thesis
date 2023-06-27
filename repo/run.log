@@ -1,0 +1,23 @@
+2023-05-04 14:53:23,590 [INFO]: Successfully got articles! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/utils/db_driver/db_driver.py:30
+2023-05-04 14:53:23,701 [INFO]: Successfully got ids! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/utils/db_driver/db_driver.py:43
+2023-05-04 14:55:00,304 [INFO]: Starting of with 351021 analyzed articles! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:203
+2023-05-04 14:55:00,406 [INFO]: Starting to map articles from queue to analyze function... in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:220
+2023-05-04 14:55:00,406 [INFO]: Successfully mapped articles from queue to analyze function! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:224
+2023-05-04 14:55:00,407 [INFO]: Waiting for process pool termination... in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:225
+2023-05-04 14:55:00,407 [INFO]: Starting processor 1 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,407 [INFO]: Starting processor 0 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,407 [INFO]: Starting processor 2 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,408 [INFO]: Starting processor 3 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,408 [INFO]: Starting processor 4 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,408 [INFO]: Starting processor 5 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,408 [INFO]: Starting processor 6 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:55:00,429 [INFO]: Starting processor 7 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:63
+2023-05-04 14:57:45,434 [INFO]: Successfully filled multiprocessing queue with all articles. Queue size: 1915 in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:189
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 1! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 0! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 5! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 4! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 2! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 6! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 7! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176
+2023-05-04 15:07:45,525 [INFO]: Queue is empty! Terminating processor 3! in /home/felix/dev/bachelor-thesis-2023-gender-gap-tracker-schweizer-medien/gender_gap_tracker/__main__.py:176

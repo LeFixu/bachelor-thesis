@@ -1,0 +1,83 @@
+\subsection{Academic medicine’s glass ceiling: Author’s gender in top three medical research journals impacts probability of future publication success}
+In der Arbeit \citetitle{academic_medicine_glass_ceiling} \cite{academic_medicine_glass_ceiling} haben \citeauthor{academic_medicine_glass_ceiling}
+die drei unten aufgelisteten Zeitschriften auf das Geschlecht der Autorinnen und Autoren untersucht.
+Diese Zeitschriften haben laut \citeauthor{academic_medicine_glass_ceiling} den höchsten Einfluss in der medizinischen Forschung.
+\begin{enumerate}
+    \item \gl{nejm}
+    \item \gl{jama}
+    \item \textsl{Lancet}
+\end{enumerate}
+
+Medizinische Fachzeitschriften haben einen erheblichen Einfluss auf die klinische Praxis und die Empfehlungen
+von medizinischen Fachgesellschaften. 
+In der akademischen Medizin gibt es jedoch nach wie vor geschlechtsspezifische Ungleichheiten, 
+insbesondere in Bezug auf die Forschungsproduktivität und den beruflichen Aufstieg \cite{marcotte2021toward,alonso2021gender,chadwick2020gender}. 
+Frauen sind seltener in Spitzenzeitschriften vertreten und ihre Arbeiten werden seltener zitiert \cite{benjamens2020gender,kramer2019sex,menzel2019gender}. 
+Die Zeitschrift \textsl{Lancet} hat sich zur Untersuchung geschlechtsspezifischer Ungleichheiten verpflichtet \cite{schwalbe2018time}. 
+Diese Studie hat gezeigt, dass Frauen seltener als Hauptautorinnen und -autoren, Zweit- oder Seniorautorinnen und -autoren 
+in medizinischen Spitzenzeitschriften vertreten sind.
+
+\subsubsection{Materialien und Methoden}
+% Geschlecht Bestimmen
+Um die primäre Variable der Studie, das Geschlecht, zu ermitteln, haben die Forschenden Informationen wie
+Pronomen, Vornamen und Fotos aus Biografien, Lebensläufen und Webseiten extrahiert. 
+Wenn das Geschlecht nicht eindeutig festgestellt werden konnte, wurde es auf der Grundlage einer Diskussion im Studienteam 
+zugewiesen oder als \enquote{unbekannt} bezeichnet. 
+Zusätzlich zu Geschlecht haben die Forschenden auch andere Autorinnen und Autoren- und Publikationsmerkmale, wie akademische Abschlüsse, 
+Fachgebiete und Studienergebnisse, extrahiert. 
+Die Zuverlässigkeit der webbasierten Datenextraktion, einschliesslich des Geschlechts, haben die Forschenden durch eine hohe  \enquote{inter-rater reliability} bestätigt.
+
+% Berechnung des ursprünglichen Stichprobenumfangs
+Die Studie untersuchte geschlechtsspezifische Unterschiede in drei medizinischen Fachzeitschriften mittels eines Chi-Quadrat-Tests. 
+Um den Stichprobenumfang zu berechnen, haben die Forschenden Effektgrössen mithilfe des R-Pakets \enquote{pwr} geschätzt. 
+Die Forschenden haben 1'033 Publikationen von Erstautorinnen und -autoren verwendet, um die gewünschten geschlechtsspezifischen Unterschiede festzustellen. 
+Die Studie konzentriert sich hauptsächlich auf Erstautorinnen und -autoren und die Forschenden haben 20 Artikel pro Jahr und Zeitschrift nach dem 
+Zufallsprinzip ausgewählt, was insgesamt 1'080 Veröffentlichungen ergibt. 
+Geschlechtsunterschiede bei Zweit-und Letztautorinnen und -autoren sowie bedeutenden Autorinnen und Autoren können aufgrund des Stichprobenumfangs höchstwahrscheinlich 
+nicht festgestellt werden.
+
+% Statistische Analysen
+Folgende statistischen Methoden haben die Forschenden für die Analyse der Publikationsraten von Frauen und Männern 
+in medizinischen Zeitschriften verwendet. 
+Die Forschenden haben verallgemeinerte Schätzgleichungsmodelle (GEE) eingesetzt, um Publikationsraten von Frauen 
+und Männern innerhalb und zwischen verschiedenen Zeitschriften zu vergleichen. 
+Chi-Quadrat-Tests haben die Forschenden verwendet, um Merkmale auf der Ebene von Autorinnen und Autoren zu vergleichen, wie zum Beispiel Fachgebiet, Abschluss, 
+Führungsposition und geografische Lage. 
+Zeitliche Vergleiche wurden durchgeführt und die Forschenden haben exakte Tests nach Fisher verwendet, um die Mehrfachveröffentlichungsraten 
+zwischen Frauen und Männern in verschiedenen Autorinnen und Autorenrollen zu vergleichen. 
+Die Ergebnisse haben die Forschenden mit einem p-Wert von $\leq 0.05$ als statistisch signifikant betrachtet. Etwas höhere 
+p-Werte von bis zu p $\leq 0.15$ wurden als Trends eingestuft. 
+Alle statistischen Analysen wurden mit SAS 9.4 durchgeführt.
+
+
+\subsubsection{Ergebnisse}
+% Ungleichheiten zwischen den Geschlechtern
+Die Studie stellt fest, dass Frauen insgesamt weniger häufig als Erst-, Zweit- oder Letztautorinnen auftraten als Männer. 
+Insgesamt und für jede der drei führenden medizinischen Forschungszeitschriften wurden geschlechtsspezifische Unterschiede 
+bei den Erst-, Zweit- und Letztautorinnen Rollen festgestellt. 
+Der Anteil der Frauen als Erstautorinnen lag insgesamt bei 26.82 \%.
+Dieses Geschlechtergefälle blieb stabil, im ganzen Zeitraum den untersuchten 17 Jahren. 
+Die Autorinnen hatten zudem tendenziell weniger Zitierungen, waren weniger häufig Koautorin von veröffentlichten Artikeln, 
+besassen weniger häufig einen Doktortitel und hatten seltener Führungspositionen inne.
+Zudem veröffentlichten Frauen weniger klinische Studien als Beobachtungsstudien (p < 0.001), und ihre Projekte konzentrierten 
+sich häufiger auf Infektionskrankheiten als die von Männern, deren Projekte sich am häufigsten auf kardiovaskuläre Themen konzentrierten (p < 0.001).
+Frauen waren auch seltener als Zweit- und Letztautorinnen vertreten. 
+Bei 34.89 \% der Veröffentlichungen in medizinischen Forschungsjournalen waren Frauen Zweitautorinnen. 
+Ein Geschlechtergefälle wurde sowohl bei den Zeitschriften insgesamt als auch innerhalb der einzelnen 
+Zeitschriften festgestellt: 27.32 \% im \gl{nejm}, 34.12 \% im \textsl{Lancet} und 43.81 \% im \gl{jama}, (alle p < 0.01).
+Die Gesamtrate der weiblichen Letztautorinnen lag bei 18.60 \%.
+Diese variierte zwischen 15.08 \% im \gl{nejm}, 19.83 \% im \textsl{Lancet} und 20.96 \% im \gl{jama} (alle p < 0.001). 
+Die Unterschiede bei den Veröffentlichungsquoten von Frauen waren bei der Rolle der letzten Autorin am dramatischsten.
+
+
+\subsubsection{Diskussion}
+Autorinnen, die in medizinischen Spitzenforschungsjournalen publizieren, sind nach wie vor unterrepräsentiert. 
+Trotz Bemühungen, die Sensibilität dafür zu erhöhen. 
+Diese Studie zeigt, dass Frauen nicht nur als Erst-, Zweit- und Letztautorinnen in hochrangigen medizinischen Fachzeitschriften 
+unterrepräsentiert sind, sondern dass auch erhebliche Unterschiede in der Vertretung von Wissenschaftlerinnen in diesen Zeitschriften bestehen. 
+Die Veröffentlichung in diesen wichtigen Zeitschriften gilt als Indikator für den beruflichen Erfolg und das künftige akademische Potenzial 
+von Autorinnen und Autoren, was für Beförderungen, Fördermittel und Führungspositionen ausschlaggebend sein kann. 
+Die Unterschiede zwischen den Publikationsergebnissen von Männern und Frauen in medizinischen Zeitschriften tragen zur 
+Aufrechterhaltung der Geschlechterungleichheit in der gesamten Medizin bei. 
+Die Studie zeigt dramatische Unterschiede in der Häufigkeit auf, mit der Frauen als Autorinnen erscheinen,
+im Vergleich zu Männern, was Anlass zu Bedenken hinsichtlich der Geschlechterungerechtigkeit gibt.

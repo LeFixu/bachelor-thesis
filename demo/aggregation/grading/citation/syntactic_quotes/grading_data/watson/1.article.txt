@@ -1,0 +1,29 @@
+Das Nationale Testinstitut für Cybersicherheit NTC in Zug hat die chinesische TikTok-App auf Risiken untersucht und kommt zu einem alles andere als beruhigenden Fazit. Doch bei der Bundesverwaltung in Bern scheint man die Warnung der unabhängigen IT-Sicherheitsexperten nicht allzu ernstzunehmen und setzt stattdessen auf Eigenverantwortung.
+Das Nationale Testinstitut für Cybersicherheit NTC hat eine knapp 40-seitige technische Sicherheitsanalyse zur TikTok-App veröffentlicht (siehe Quellen). Die Prüfer empfehlen, den Einsatz der mobilen Anwendung kritisch zu hinterfragen, «insbesondere auf Geräten, die im geschäftlichen und behördlichen Kontext verwendet werden». Der Einsatz sollte «auf das erforderliche Minimum beschränkt» werden.
+Bei der App-Analyse konnten die Prüfer keine Hinweise auf eine Benutzerüberwachung feststellen. Dies sei aber kein Grund zur Entwarnung und man könne «keine pauschale Unbedenklichkeitserklärung» abgeben.
+Eine heimliche Überwachung der TikTok-User sei aufgrund der weitreichenden Geräte-Berechtigungen der Anwendung grundsätzlich technisch realisierbar.
+«Die App könnte bereits heute versteckte Überwachungsfunktionen beinhalten, die nur unter bestimmten Bedingungen ausgelöst werden (z.B. an bestimmten Orten oder zu bestimmten Uhrzeiten).»
+Weiter stellten die Prüfer fest, dass ein kleiner Teil der Kommunikation mit den TikTok-Servern (Backend) zusätzlich verschlüsselt werde. Der genaue Inhalt dieser Kommunikation sei unbekannt und es sei unklar, welche Informationen über diesen Kanal «möglicherweise abfliessen».
+Zudem könnten versteckte Funktionen durch die häufigen Updates nahezu unbemerkt «nachgerüstet» werden, geben die Cybersicherheits-Experten zu bedenken. Dies gelte grundsätzlich für jede App und insbesondere für solche wie TikTok «mit weitreichenden Berechtigungen».
+Zu den «hohen Risiken» gehöre das Übermitteln der User-Kontaktdaten an den chinesischen Tech-Konzern Bytedance. Zwar würden diese Daten nicht im Klartext zugänglich gemacht, jedoch müsse angenommen werden, dass ByteDance in der Lage sei, sie zu rekonstruieren.
+Problematisch sei auch, dass TikTok auf dem iPhone bei jedem Start den genauen Standort des Geräts abfrage und diese Information an Bytedance sende. 
+Zusätzlich verbinde sich die App – auch wenn sie nur im Hintergrund laufe – einmal pro Stunde mit den Bytedance-Servern, wodurch sich aufgrund der IP-Adressen ein ungefähres Bewegungsprofil der User ergebe.
+Schliesslich gilt in Erinnerung zu rufen, dass die über TikTok verschickten Chatnachrichten (im Gegensatz zu Threema und Co.) nicht Ende-zu-Ende verschlüsselt sind.
+Was tut die «Cyber-Empa»?
+Das Nationale Testinstitut für Cybersicherheit NTC untersucht «digitale Produkte und Infrastrukturen, die von der Privatwirtschaft nicht oder nicht ausreichend geprüft werden.» Die Non-Profit-Organisation mit Sitz in Zug wurde 2020 auf Initiative des Kantons Zug gegründet. Die unabhängigen Fachleute arbeiten mit dem Nationalen Zentrum für Cybersicherheit NCSC zusammen, aber auch mit Hochschulen und anderen Cybersecurity-Gremien.
+
+Inhaltlich sei die Idee eines nationalen Prüfinstituts vom Branchenverband ICT Switzerland gekommen, so die NZZ. Erklärtes Ziel: die Sicherheit in der Lieferkette von IT-Produkten zu erhöhen. Immer wieder gebe es Fälle, «bei denen in Produkte Hintertüren eingebaut werden, die zum Beispiel von Nachrichtendiensten genutzt werden».
+Bei ihrer Analyse haben die NTC-Fachleute gemäss Mitteilung «auf möglichst realitätsnahe Testbedingungen ohne besondere Schutzmassnahmen geachtet». Sprich: Sie wollten allfällige Schutz- und Tarnmechanismen austricksen, die von den Entwicklern in die App integriert sein könnten.
+Untersucht wurden folgende App-Versionen:
+Android: 28.3.3
+iOS (iPhone): 28.2.0 und 28.4.0
+NTC-Testleiter Tobias Castagna erklärte gegenüber watson, dass es wegen der immensen zeitlichen und personellen Aufwands nicht möglich gewesen sei, die Funktionsweise der App bis ins allerkleinste technische Detail zu prüfen. Sprich: Es wurde kein Reverse-Engineering durchgeführt.
+Dazu schreibt das NTC:
+Der «Schutz vor Manipulation, Zensur und politischer Meinungsbeeinflussung» sei nicht Gegenstand der Analyse gewesen.
+Ausserdem haben man aus Zeitgründen weder technische Langzeitbeobachtungen noch eine detaillierte Analyse aller Softwarekomponenten durchführen können.
+Im NTC-Bericht wird betont, es handle sich bei der Überprüfung um «eine Momentaufnahme». Allfällige Anpassungen an der App, die seitens Entwickler vor- oder nachträglich vorgenommen werden, könnten nicht erfasst werden.
+Danach sieht es nicht aus.
+Die Bundeskanzlei empfehle den Angestellten der Bundesverwaltung, sie sollten Social-Media-Apps wie TikTok generell zurückhaltend einsetzen, berichtet die NZZ. In einem neu erstellten Merkblatt zum Thema heisse es: «Geben Sie den Apps so wenig Rechte wie möglich.»
+Während diverse europäische Länder, die EU, die USA und weitere Partnerstaaten auf Nummer sichergehen wollen und die TikTok-App von Diensthandys verbannt haben, sieht man in Bundesbern offenbar keinen Grund zu handeln.
+Die wertvollen geschäftlichen Daten würden auf den Diensthandys in einer isolierten Umgebung bearbeitet, einer sogenannten Sandbox, fasst die NZZ das Argument der Bundeskanzlei zusammen. Damit seien diese sensitiven Informationen vor dem Zugriff der TikTok-App geschützt.
+Dieser Schutz sei jedoch begrenzt. «Auf die Standortdaten des Diensthandys oder auf private Kontakte kann die Tiktok-Anwendung trotzdem zugreifen.» Zudem seien auch Kamera und Mikrofon durch die Sandbox nicht geschützt.

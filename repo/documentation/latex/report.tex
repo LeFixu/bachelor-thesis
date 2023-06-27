@@ -1,0 +1,212 @@
+%============================ MAIN DOCUMENT ================================
+% define document class
+\documentclass[
+	a4paper               % paper format
+%	,10.5pt               % fontsize
+%	,BCOR=18mm            % Binding correction
+	,oneside
+    ,class=scrreprt
+	,bibliography=totoc   % If enabled add bibliography to TOC
+	,listof=totoc         % If enabled add lists to TOC
+%	,bilingual
+	,monolingual
+%	,invert-title
+]{bfhthesis}              % KOMA-script report
+
+\usepackage[
+	hidelinks,
+	pdfusetitle,
+]{hyperref}
+
+\usepackage{biblatex}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\addbibresource{references.bib} %Import the bibliography file
+
+\usepackage[ngerman]{babel} % german header language
+\usepackage{float}
+
+\usepackage[babel,german=quotes]{csquotes}
+
+\usepackage[acronym, toc]{glossaries}
+
+\usepackage{caption}
+
+\usepackage[export]{adjustbox}[2011/08/13]
+
+\usepackage{lscape}
+
+% ----- document styling -----------------
+%\setlength{\parskip}{6pt} % Abstaende zwischen \par
+
+% % space nach section, subsection, ...
+% \RedeclareSectionCommand[
+%   runin=false,
+%   afterskip=-.25\baselineskip
+% ]{section}
+
+% \RedeclareSectionCommand[
+%   runin=false,
+%   afterskip=-.25\baselineskip
+% ]{subsection}
+
+% \RedeclareSectionCommand[
+%   %runin=false,
+%   afterindent=false,
+%   beforeskip=0pt,
+%   afterskip=-.05\baselineskip]{chapter}
+
+% ----------------------------------------
+% Abkuerzungen
+\input{inputs/acronyms.tex}
+% Glossar
+\input{inputs/glossary.tex}
+\makeglossaries
+
+\newcommand{\gl}[1]{{\textsl{\gls{#1}}}}
+\newcommand{\ashort}[1]{{\textsl{\acrshort{#1}}}}
+\newcommand{\along}[1]{{\textsl{\acrlong{#1}}}}
+
+\begin{document}
+
+\frontmatter
+
+\title{Bachelor Thesis}
+\subtitle{Gender Gap Tracker für die Schweizer Medien}
+\author{Anina Aeschbacher \and Felix Neidhart}
+\institution{Bern University of Applied Sciences}
+\department{Technik und Informatik}
+%\institute{Mikro- und Medizintechnik}
+\version{1.0}
+%\titlegraphic{\includegraphics[width=\width]{./images/title_image_diagram_minimized.png}}
+\advisor{Prof. Dr. Mascha Kurpicz-Briki}
+%\coadvisor{PhD A. Smart}
+%\projectpartner{proj partner}
+\expert{Alain Joray}
+\degreeprogram{Bachelor of Science in Computer Science}
+
+%----------------  BFH tile page   -----------------------------------------
+\maketitle
+
+\addchap{Abstract}
+
+\input{content/abstract.tex}
+
+%------------ TABLEOFCONTENTS ----------------
+\tableofcontents
+
+%------------ START MAIN PART ----------------
+\mainmatter
+
+\chapter{Einleitung}
+\input{content/introduction.tex}
+
+\input{content/state-of-the-art/state-of-the-art.tex}
+
+\input{content/methods/methods.tex}
+
+%\input{content/methoden/ziele-projekt.tex}
+
+%\chapter{Hauptteil}
+%The main part explains what you did in your project. The content depends on the topic of
+%the project and can if necessary be split in multiple chapters. For example, you can describe
+%your implementation and an experimental setup, if applicable. In other cases, a concept can
+%be defined here.
+
+\input{content/technische-umsetzung/technische-umsetzung.tex}
+
+%\input{content/technische-umsetzung/auswahl-verfahren.tex}
+
+%The Results section does present the outcome of the project. Sometimes this can also be
+%integrated in the main part, depending on the topic. If you have run experiments, here you
+%can present the results. Or if you have an application, you can show screenshots of the final
+%product.
+
+\input{content/results/results.tex}
+
+\chapter{Diskussion}
+%The Discussion chapter describes the consequences of your project (for the user, society, ...)
+%and gives an outlook on possible next steps. You can also discuss possible limitations or
+%problems that you have come across and how you handled them.
+
+\input{content/discussion.tex}
+
+% \chapter{Schlussfolgerungen}
+%The Conclusion sums up the results of the project. You should also state your personal
+%learnings in the project here.
+
+\input{content/schlussfolgerungen/schlussfolgerungen.tex}
+
+%------------ START BACK PART ------------
+\backmatter
+%----------- Bibliography ----------------
+%\clearpage
+\printbibliography % hier ergänzen für richtiges format https://www.bibtex.com/s/bibliography-style-ieeetran-ieeetran/
+
+%------------ List of Figures ------------
+\listoffigures
+%------------ List of Tables -------------
+\listoftables
+
+% Print the glossary
+\setglossarystyle{altlist}
+
+\printglossary[title=Glossar, toctitle=Glossar]
+
+\printglossary[type=\acronymtype, title=Abkürzungen, toctitle=Abkürzungen]
+
+\appendix
+
+%------------ Eigenständigkeitserklärung -------------
+
+\newpage
+\thispagestyle{empty}
+\recalctypearea
+    \begin{figure}[H]
+        \noindent
+	    \begin{center}
+            \makebox[\textwidth][l]{\raisebox{0pt}{
+		    \includegraphics[width=1.4\linewidth,center]{other_inputs/Erklaerung_anina.pdf}
+            }}
+	    \end{center}
+    \end{figure}
+\newpage
+\recalctypearea
+
+\newpage
+\thispagestyle{empty}
+\recalctypearea
+    \begin{figure}[H]
+        \noindent
+	    \begin{center}
+            \makebox[\textwidth][l]{\raisebox{0pt}{
+		    \includegraphics[width=1.4\linewidth,center]{other_inputs/Erklaerung_felix.pdf}
+            }}
+	    \end{center}
+    \end{figure}
+\newpage
+\recalctypearea
+
+\end{document}

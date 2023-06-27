@@ -1,0 +1,14 @@
+[
+  { "_id": { "source": "20min", "gender": "female" }, "count": 1882 },
+  { "_id": { "source": "20min", "gender": "male" }, "count": 4580 },
+  { "_id": { "source": "20min", "gender": "undefined" }, "count": 978 },
+  { "_id": { "source": "Watson", "gender": "female" }, "count": 3745 },
+  { "_id": { "source": "Watson", "gender": "male" }, "count": 13979 },
+  { "_id": { "source": "Watson", "gender": "undefined" }, "count": 2655 },
+  { "_id": { "source": "blick", "gender": "female" }, "count": 15805 },
+  { "_id": { "source": "blick", "gender": "male" }, "count": 46981 },
+  { "_id": { "source": "blick", "gender": "undefined" }, "count": 10499 },
+  { "_id": { "source": "srf", "gender": "female" }, "count": 6888 },
+  { "_id": { "source": "srf", "gender": "male" }, "count": 21951 },
+  { "_id": { "source": "srf", "gender": "undefined" }, "count": 3500 }
+]

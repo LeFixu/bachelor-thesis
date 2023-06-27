@@ -1,0 +1,14 @@
+[
+  {"source": "20min", "gender": "weiblich" , "count": 1882 },
+  {"source": "20min", "gender": "männlich" , "count": 4580 },
+  {"source": "20min", "gender": "unbekannt" , "count": 978 },
+  {"source": "Watson", "gender": "weiblich" , "count": 3745 },
+  {"source": "Watson", "gender": "männlich" , "count": 13979 },
+  {"source": "Watson", "gender": "unbekannt" , "count": 2655 },
+  {"source": "Blick", "gender": "weiblich" , "count": 15805 },
+  {"source": "Blick", "gender": "männlich" , "count": 46981 },
+  {"source": "Blick", "gender": "unbekannt" , "count": 10499 },
+  {"source": "SRF", "gender": "weiblich" , "count": 6888 },
+  {"source": "SRF", "gender": "männlich" , "count": 21951 },
+  {"source": "SRF", "gender": "unbekannt" , "count": 3500 }
+]

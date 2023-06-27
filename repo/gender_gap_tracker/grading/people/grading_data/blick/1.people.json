@@ -1,0 +1,18 @@
+[
+    {
+        "first_name": "Mona",
+        "last_name": "Niklaus",
+        "salutation": [],
+        "pronouns_and_articles": ["Sie"],
+        "substitute_nouns": [],
+        "positions_in_text": [1085,3012,3513]
+    },
+    {
+        "first_name": "Reto",
+        "last_name": "Hügli",
+        "salutation": [],
+        "pronouns_and_articles": [],
+        "substitute_nouns": [],
+        "positions_in_text": [1692,2568]
+    }
+]

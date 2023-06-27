@@ -1,0 +1,6 @@
+[
+  {"source": "20min", "articles": 20487, "citations": 7440, "citations_per_article": 0.36 },
+  {"source": "Watson", "articles": 62381, "citations": 20379, "citations_per_article": 0.33 },
+  {"source": "Blick", "articles": 194881, "citations": 73285, "citations_per_article": 0.38 },
+  {"source": "SRF", "articles": 73272, "citations": 32339, "citations_per_article": 0.44 }
+]

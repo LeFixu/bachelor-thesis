@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table Example</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <article>
+        {{text}}
+    </article>
+    <table>
+        <thead>
+            <tr>
+                <th>Subjekt</th>
+                <th>Geschlecht</th>
+                <th>Verb</th>
+                <th>Aussage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in citations %}
+            <tr>
+                <td>{{c.citation.subject}}</td>
+                <td>{{c.person.gender}}</td>
+                <td>{{c.citation.citation_verb}}</td>
+                <td>{{c.citation.citation}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

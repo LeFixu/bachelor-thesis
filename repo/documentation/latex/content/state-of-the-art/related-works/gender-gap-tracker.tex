@@ -1,0 +1,145 @@
+\subsection{The Gender Gap Tracker: Using Natural Language Processing to measure gender bias in media}
+
+Die wissenschaftliche Arbeit \citetitle{gender_gap_tracker} \cite{gender_gap_tracker} von \citeauthor{gender_gap_tracker}
+aus dem Jahr \citeyear{gender_gap_tracker} ist das Vorbild für die vorliegende Thesis. Im Rahmen
+ihrer umfassenden Untersuchung der kanadischen, englischsprachigen Medien haben die Verfasser:innen nicht nur
+den Gender Gap anhand der Anzahl Zitate pro Geschlecht und Nachrichtenportal untersucht, sondern 
+auch neue Standards zur Messung und kontinuierlichen Überwachung der Repräsentation von Männern und Frauen in den
+Medien geschaffen.
+
+Aufgrund der ausführlichen Beschreibung ihrer Vorgehensweise und der geringen Eintrittshürde in
+Bezug auf notwendiges vorprozessiertes Datenmaterial, kann diese Methodik auch gut in anderen Kultur-
+und Sprachräumen nachgeahmt werden. Da dieses Projekt genau das vorhat, ist diese Arbeit in einem
+grossen Detailgrad beschrieben.
+
+\subsubsection{Ziele der Arbeit}
+
+Das Ziel der Arbeit war es, den Unterschied in der Repräsentation der Geschlechter in den kanadischen
+Medien sichtbar zu machen. Als Mass für die Repräsentation verwenden \citeauthor{gender_gap_tracker}
+die Anzahl der Zitate in den Online-Nachrichtenportalen, die von Männern und Frauen publiziert werden.
+
+Dazu haben sie eine Applikation entwickelt, die auf regelmässiger Basis die neusten Artikel
+der Portale mittels Webcrawling herunterlädt und analysiert. Für die Untersuchung der Texte verwenden sie
+verschiedene Arten von \gl{nlp}, über welche die folgenden Unterkapitel mehr Aufschluss geben sollen.
+
+Schlussendlich visualisieren sie die Daten auf einer öffentlich zugänglichen Plattform in der Form einer
+interaktiven Webapplikation
+\footnote{https://gendergaptracker.informedopinions.org/}.
+Die Resultate aus der Arbeit stammen direkt von dieser Software.
+
+Die stets aktuellen Daten des \gl{ggt} werden bewusst öffentlich zur Verfügung gestellt, um den Medienschaffenden
+Anreize zu verschaffen, für mehr Diversität in ihrer Berichterstattung zu sorgen. In der Arbeit
+vergleichen sie den \gl{ggt} mit einem Fitness Tracker, der den Menschen helfen soll für ihrer
+Fitness zu sorgen. Analog zu diesem Prinzip soll dieses Tool den Medienkonzernen mithilfe von Transparenz
+und Rückverfolgbarkeit helfen, ihren \gl{genderbias} zu verringern.
+
+\subsubsection{Zitate extrahieren}\label{ggt-method-citation}
+
+Der Kern der Aufgabe des \gl{ggt} ist das Extrahieren von Zitaten. Die Entwickler:innen haben sich dazu eines vortrainierten, syntaktischen Parsers von Spacy bedient,
+der Parsetrees aus Sätzen generieren kann. Die Software teilt die zu analysierenden Artikel also in die einzelnen Sätze auf und analysiert mit dem genannten Parser deren
+einzelne Wörter. Mithilfe dieser Wörter und der dazugehörigen Bedeutung, die das Modell ihnen zuschreibt, kann die Applikation im Anschluss
+zwei unterschiedliche Arten von Zitaten erkennen. Diese sind auch für die vorliegende Arbeit
+von fundamentaler Bedeutung und wurden deshalb im Kapitel \ref{types-of-citations} im
+Detail beschrieben.
+\begin{enumerate}
+    \item \gl{quote-syntactic}
+    \item \gl{quote-floating}
+\end{enumerate}
+
+Diese Art Zitate zu unterscheiden erscheint auf den ersten Blick nicht intuitiv. So werden Zitate ja entweder in direkter, also mit Anführungs-
+und Schlusszeichen, oder in indirekter Rede verfasst. Der naheliegende Ansatz wäre also die Unterscheidung nach diesen zwei Mustern. \citeauthor{SpronckNikitina+2019+119+159}
+haben aber herausgefunden, dass ein syntaktischer Ansatz zum Parsen (mithilfe der Satzstruktur) bessere Resultate liefert, als semantisches Parsing (anhand von semantischen Merkmalen
+wie Satzzeichen oder bestimmten Wörtern) \cite{SpronckNikitina+2019+119+159}. Aufgrund dieser Erkenntnis orientieren sie sich am syntaktischen Ansatz.
+
+\subsubsection{Personen identifizieren und deren Geschlecht bestimmen}
+
+Für ihre Auswertungen extrahieren die Forscher:innen alle Personen aus den Artikeln und bestimmen ihr Geschlecht.
+Insbesondere interessieren sie sich für
+\begin{enumerate}
+    \item die Autorinnen und Autoren der Texte,
+    \item die zitierten Personen (Quellen)
+\end{enumerate}
+aber auch generell für alle anderen Menschen, die im Text erwähnt werden.
+
+Um Personen in den Artikeln zu finden, bedienen sie sich eines \textsl{\acrshort{ner}s (\textsl{Named Entity Recognizers})}. Dieser spezialisierte Parser kann aus Texten
+Entitäten wie Personen, Orte und Firmen extrahieren. In diesem Fall werden nur die Personen weiterverarbeitet.
+
+Das Resultat dieses Verfahrens ist eine Liste mit allen Wörtern und Satzteilen, die Personen repräsentieren. Diese Liste ist unbereinigt und
+wird mithilfe eines \gl{cr} Algorithmus in zusammengehörige Gruppen aufgeteilt. So wird der \gl{ner} in einem Text über den
+Bundesrat Berset viele unterschiedliche Repräsentationen dieses Mannes finden, wie zum Beispiel \enquote{Bundesrat Berset}, \enquote{er}, \enquote{Alain Berset}
+etc. Da diese Nennungen alle der gleichen Person gelten, ist es für die Auswertung relevant, diese zu clustern.
+
+Zur Identifikation des Geschlechts verwendet die Applikation eine Web API, die entweder nur mithilfe des Vornamens, oder mit Vornamen und Nachnamen, das Geschlecht
+bestimmen kann. Einzelne Fälle, welche die API falsch zuordnet, führt die Applikation in einer dedizierten Liste.
+
+\subsubsection{Evaluation}
+
+Zur Qualitätssicherung haben die Forschenden kontinuierlich Messungen zur Performance ihrer Auswertungen durchgeführt. Das ermöglichte es ihnen, den Effekt von implementierten Verbesserungen
+direkt messen zu können. Als Grundlage dazu dienten 14 repräsentative, manuell ausgewertete Artikel aus allen sieben verwendeten Nachrichtenportalen mit einer Mindestlänge von 3000 Zeichen.
+Mithilfe dieses Datensatzes konnten sie die \gl{precision}, den \gl{recall} und den \gl{f1-score} für die Extraktion von Zitaten, Personen und Verben bestimmen.
+
+\subsubsection{Resultate}
+% Absoluter Gender Gap
+Die Resultate der Arbeit können einen klaren \gl{gender-bias-distribution} in den untersuchten
+Onlineartikel aus sieben kanadischen Medienhäusern feststellen. So sind die Zitate in ihrem Datensatz
+in einem Durchschnitt über zwei Jahre (01.10.2018 - 30.09.2020) in nur 29\% der Fälle Frauen zuzuordnen.
+Die verbleibenden 71\% sind Zitate von Männern.
+
+Der Unterschied in der Verteilung der Zitate zwischen den Geschlechtern variiert zwischen den Medienhäusern,
+wobei CBC News mit 33\% der Zitate am besten und The Globe and Mail mit 23\% am schlechtesten abschneiden.
+
+Aus ihren Daten ist ersichtlich, dass Frauen während der Coronapandemie häufiger zitiert wurden als zuvor.
+Die Autorinnen und Autoren weisen auf die Tatsache hin, dass Frauen in den Gesundheitsämtern häufiger vertreten sind als in
+anderen Bereichen der Arbeitswelt und dass eine ausgeglichene Repräsentation der Geschlechter in wichtigen
+Ämtern den \gl{gendergap} zu verringern scheint.
+
+% Gender Gap unter wichtigen Personen
+Die für diese Auswertung gesammelten Daten boten auch die Möglichkeit, Untersuchungen zu den am häufigsten zitierten
+Menschen zu machen. So haben die Forscher:innen einen Ausschnitt der Top 15 zitierten Personen aus dem Datenset genauer
+untersucht. Diese haben sie im Anschluss Kategorien wie Politik, öffentlicher Gesundheit und Privatwirtschaft zugewiesen.
+Die meistzitierte Frau in dieser Liste würde mit 2'239 Zitierungen gerade mal den 8 Platz in der Rangliste der Männer
+einnehmen. Interessanterweise sind alle 15 Vertreter der meistzitierten Männer im Sektor der Politik tätig. Auch bei den
+Frauen sind die meisten Politikerinnen. Drei sind aus dem Bereich der öffentlichen Gesundheit und eine aus der Privatwirtschaft.
+Dass es drei Vertreterinnen aus dem Gesundheitssektor in die Top 15 meist zitierten Frauen im Datensatz schaffen, weist ebenfalls
+darauf hin, dass eine ausgeglichenere Frauenquote in für die Öffentlichkeit interessanten Bereichen den Geschlechtergraben verkleinern
+könnte.
+
+
+% Gender Gap nach Bereich der Gesellschaft
+Eine weitere Analyse der Wissenschaftler:innen zeigt die Aufteilung der Zitate nach Geschlecht und Tätigkeitsgebiet der Quelle.
+Die tabellarische Auswertung zeigt, dass die meistzitierten Männer Politiker (73.8\%), Sportler (7.7\%) und Regierungsangestellte sind.
+Bei den Frauen finden sich die meisten Zitate in den Tätigkeitsgebieten Politik (52.6\%), Gesundheit (16.7\%) und Exekutive (8.3\%) (Regierungsangestellte).
+Auch hier fällt wieder auf, wie massiv weniger Frauen zitiert werden. So werden Politiker 103'378 und Politikerinnen 29'007 Mal zitiert,
+Sportler 10'723 und Sportlerinnen 1'415 Mal und Regierungsangestellte Männer 9'175 und Frauen 4'583 Mal. Nur in den Bereichen öffentliche Gesundheit,
+NGO's und Wissenschaft werden Frauen leicht häufiger zitiert.
+
+Eine interessante Nebenerkenntnis dieser Auswertung ist die Tatsache, dass insgesamt weniger Zitate von Frauen in Online-Nachrichtenportalen
+erscheinen als von Männern, jedoch absolut gesehen mehr individuelle Frauen zitiert werden. Das bedeutet, dass die Anzahl Zitate pro Mann
+deutlich höher ist als die Anzahl Zitate pro Frau.
+
+Sie erkennen das Muster, dass Männern mehr Raum gegeben wird als Frauen und einige wenige Kategorien den grössten Teil der Berichterstattung
+dominieren. Die Forscher:innen spekulieren aufgrund dieser Erkenntnis, dass die Daten einer Pareto Verteilung unterliegen. Also dass das
+grösste Hindernis mehr von Frauen zu hören die Bevorzugung derer ist, die bereits sehr viel Raum einnehmen.
+
+% Gender Gap nach Geschlecht des Authors
+In einer weiteren Auswertung haben \citeauthor{gender_gap_tracker} den Zusammenhang zwischen dem Geschlecht des
+Autors oder der Autorin und der Anzahl und Verteilung der Zitate von Männern und Frauen untersucht. Sie wollten
+damit herausfinden, ob Frauen häufiger weibliche Quellen zitieren als Männer. In der Tat scheinen Journalistinnen
+häufiger Frauen zu zitieren als Journalisten. Während Männer im Schnitt nur in einem Viertel (25\%) ihrer Zitate auf Frauen
+zurückgreifen, sind es bei den Frauen immerhin 34\%. Daraus schliessen die Autorinnen und Autoren, dass ein Teil der Lösung zum
+Gender Gap in der Erhöhung der Quote von Reporterinnen besteht. Nicht nur, weil sie in selbst geschriebenen Artikeln
+häufiger Frauen zitieren, sondern weil sie auch in gemischten Teams einen positiven Einfluss auf die Wahl der Quellen
+ausüben, wie die Auswertung zeigt.
+
+% Applikation
+Die Applikation, die auf täglicher Basis die für diese Auswertungen notwendigen Daten aggregiert, ist nach wie vor im Einsatz und wird - wenn auch sporadisch, 
+doch immer wieder weiterentwickelt. Die aktuellsten Auswertungen sind in interaktiver Form auf \href{https://gendergaptracker.informedopinions.org/
+}{GenderGapTracker.InformedOpinions.org} zu finden. Der Code dazu ist öffentlich auf \href{https://github.com/sfu-discourse-lab/GenderGapTracker}{GitHub} einsehbar.
+
+
+\subsubsection{Weiterentwicklung des Gender Gap Trackers}
+Nach der Fertigstellung des Papers im Jahr \citeyear{gender_gap_tracker}, wurde die Applikation um die Möglichkeit, auch französische Artikel
+zu analysieren, erweitert. Damit analysiert der \gl{ggt} zum aktuellen Stand sieben englisch- und sechs französischsprachige Nachrichtenportale.
+
+Da die Release Notes auf GitHub erst seit September 2022 geführt werden, bleiben wohl viele neue Features, die in der Arbeit nicht beschrieben sind,
+verborgen. Die Entwickler:innen sind jedoch fleissig am \gl{refactorn} und scheinen den \gl{ggt} regelmässig zu warten und weiterzuentwickeln.

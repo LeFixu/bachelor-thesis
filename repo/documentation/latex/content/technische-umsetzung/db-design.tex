@@ -1,0 +1,74 @@
+\newpage
+\section{Datenbank}\label{db-design}
+Wir haben im Vorprojekt von der BFH eine virtuelle Maschine gemietet, auf die wir über \ashort{ssh} zugreifen können.
+Auf dieser haben wir eine MongoDB installiert, um dort die Artikel zu speichern.
+Die \gl{collection} \enquote{analyzed\_articles} enthält die analysierten Artikel.
+Diese enthalten die gefundenen Zitate mit Personen und deren Geschlecht.
+Die Struktur der Einträge ist in Abbildung \ref{structure-analyzed-articles} ersichtlich.
+Darunter in der Abbildung \ref{analyzed-article} folgt ein Eintrag der DB als Beispiel.
+
+% \newlist{myEnumerate}{itemize}{3}
+% \setlist[myEnumerate]{nosep,label=\protect\mpbullet}
+% \setlistdepth{6}
+\begin{figure}[H]
+\textbf{analyze\_articles}
+\begin{itemize}
+    \item \textbf{title:} Titel des Artikels
+    \item \textbf{lead:} Lead Text des Artikels
+    \item \textbf{url:} \ashort{url} zum Artikel, eindeutiger Schlüssel
+    \item \textbf{author:} Autor:in des Artikels
+    \item \textbf{source:} Das Nachrichtenportal
+    \item \textbf{published:} Timestamp der Veröffentlichung
+    \item \textbf{updated:} Timestamp der letzten Aktualisierung
+    \item \textbf{text:} Text des Artikels
+    \item \textbf{quotes:} Zitate in Form von Liste
+    \begin{itemize}
+        \item \textbf{designation:} Person von Zitat
+        \item \textbf{gender:} Geschlecht der Person
+        \item \textbf{quotation verb:} Verb welches zum Zitat einleitet
+        \item \textbf{quote:} Zitat Text
+        \item \textbf{start of quote in text:} Start Position von Zitat im Text
+    \end{itemize}
+\end{itemize}
+\caption{Struktur eines Eintrags in der MongoDB Collection \enquote{analyzed\_articles}}
+\label{structure-analyzed-articles}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+	\begin{lstlisting}
+{
+    "_id": "794aceeeea0911eda58075d660e6a249",
+    "article": {
+        "_id": "cf49cff695fa11ed8a280242ac110002",
+        "title": "Nimm dich nicht zu wichtig!",
+        "lead": "Bescheidenheit ist eine Zier, doch weiter kommt man ohne ihr, besagt ein Sprichwort. Doch zahlt sich Bescheidenheit wirklich weniger aus als Selbstdarstellung? Eine Bestandesaufnahme.",
+        "author": {
+            "designation": "Raphael Zehnder",
+            "gender": "male"
+        },
+        "source": "srf",
+        "url": "www.srf.ch/kultur/gesellschaft-religion/wochenende-gesellschaft/
+        bonus-bescheidenheit-nimm-dich-nicht-zu-wichtig",
+        "published": 1577005620,
+        "updated": 1577005620,
+        "text": "Egozentrische Pfauen tummeln sich allenthalben: Wirtschaftskapitäne blasen sich auf, Politikerinnen und Politiker lobpreisen ..."
+    },
+    "quotes": [
+        {
+            "subject": {
+                "designation": "Walter Slezak",
+                "gender": "male"
+            },
+            "quotation_verb": "brachte",
+            "quote": "Wir kaufen Dinge, die wir nicht brauchen, um Menschen zu beeindrucken, die wir nicht mögen",
+            "start_of_quote_in_text": 555
+        }
+    ]
+}
+        
+	\end{lstlisting}
+	\caption{\enquote{analyzed\_articles} \gl{collection} Eintrag Beispiel}
+	\label{analyzed-article}
+\end{figure}

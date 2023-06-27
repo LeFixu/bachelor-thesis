@@ -1,0 +1,127 @@
+{
+    "people_type": "normal",
+    "people_found": 13,
+    "people_count": 11,
+    "recall": 1.125,
+    "quality_grade": 0.5962091503267974,
+    "portal_grades": [
+        {
+            "portal": "20min",
+            "people_found": 13,
+            "people_count": 11,
+            "recall": 1.125,
+            "quality_grade": 0.5962091503267974,
+            "article_grades": [
+                {
+                    "article_id": 1,
+                    "people_found": 10,
+                    "people_count": 8,
+                    "recall": 1.25,
+                    "quality_grade": 0.3924183006535948,
+                    "people_grades": [
+                        {
+                            "person_id": 36,
+                            "first_name_grade": 0.2,
+                            "last_name_grade": 0.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.06666666666666667
+                        },
+                        {
+                            "person_id": 76,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 0.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.3333333333333333
+                        },
+                        {
+                            "person_id": 119,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "person_id": 256,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 0.3333333333333333,
+                            "final_grade": 0.7777777777777778
+                        },
+                        {
+                            "person_id": 273,
+                            "first_name_grade": 0.2,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.4
+                        },
+                        {
+                            "person_id": 308,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "person_id": 624,
+                            "first_name_grade": 0.0,
+                            "last_name_grade": 0.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.0
+                        },
+                        {
+                            "person_id": 702,
+                            "first_name_grade": 0.0,
+                            "last_name_grade": 0.7058823529411765,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.23529411764705885
+                        },
+                        {
+                            "person_id": 1543,
+                            "first_name_grade": 0.16666666666666666,
+                            "last_name_grade": 0.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.05555555555555555
+                        },
+                        {
+                            "person_id": 1870,
+                            "first_name_grade": 0.16666666666666666,
+                            "last_name_grade": 0.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.05555555555555555
+                        }
+                    ]
+                },
+                {
+                    "article_id": 0,
+                    "people_found": 3,
+                    "people_count": 3,
+                    "recall": 1.0,
+                    "quality_grade": 0.8,
+                    "people_grades": [
+                        {
+                            "person_id": 7,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 0.2,
+                            "final_grade": 0.7333333333333334
+                        },
+                        {
+                            "person_id": 96,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.6666666666666666
+                        },
+                        {
+                            "person_id": 1419,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

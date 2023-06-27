@@ -1,0 +1,34 @@
+[
+    {
+        "first_name": "Zana",
+        "last_name": "Avdiu",
+        "salutation": [],
+        "pronouns_and_articles": ["sie"],
+        "substitute_nouns": ["Feministin"],
+        "positions_in_text": [94, 226, 642, 743, 1228, 1390]
+    },
+    {
+        "first_name": "Granit",
+        "last_name": "Xhaka",
+        "salutation": [],
+        "pronouns_and_articles": ["ihm"],
+        "substitute_nouns": [],
+        "positions_in_text": [234,399,1485]
+    },
+    {
+        "first_name": "Ragip",
+        "last_name": "Xhaka",
+        "salutation": [],
+        "pronouns_and_articles": [],
+        "substitute_nouns": [],
+        "positions_in_text": [248,571]
+    },
+    {
+        "first_name": "José",
+        "last_name": "Noguera",
+        "salutation": [],
+        "pronouns_and_articles": ["dem"],
+        "substitute_nouns": [],
+        "positions_in_text": [4152]
+    }
+]

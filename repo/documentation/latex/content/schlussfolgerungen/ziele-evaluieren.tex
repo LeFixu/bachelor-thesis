@@ -1,0 +1,100 @@
+% Das Fazit steht im direkten Zusammenhang mit der Einleitung, 
+% da du auf die Forschungsfragen oder Hypothesen eingehst, 
+% die zu Beginn der Bachelorarbeit aufgestellt wurden.
+
+% Im Fazit deiner Bachelorarbeit wiederholst du nicht noch einmal die gesamte Arbeit,
+% sondern du legst zusammenfassend die wichtigsten und aussagekräftigsten Ergebnisse dar. 
+% Beim Schreiben des Fazits solltest du also die folgenden Regeln beachten:
+
+%     Keine neuen Informationen und Interpretationen
+%     Das Fazit ist grundsätzlich eine Zusammenfassung deiner wichtigsten Erkenntnisse. 
+%     Es darf daher nur mit Informationen und Gedankengängen gefüllt werden, die du bereits im Fließtext dargelegt hast.
+%     Keine Beispiele und Zitate
+%     Im Fazit fasst du Fakten zusammen und erklärst sie nicht anhand neuer Beispiele und Zitate anderer Forschenden.
+%     Dein Ergebnis ist immer wertvoll
+%     Es kann vorkommen, dass deine Ergebnisse nicht deinen Erwartungen entsprechen. 
+%     Wenn du deine Forschungsfrage aber gut gestellt hast, bspw. mit den Formulierungen‚
+%     wie viel‘ oder ‚inwiefern‘, wirst du immer ein wertvolles Ergebnis erhalten, 
+%     das die Forschung auf diesem Gebiet weiterbringt.
+
+
+% Ziele der Arbeit (aus der Einleitung):
+% Die Arbeit soll aufzeigen, inwiefern das Erkennen von Zitaten
+% mittels \gl{nlp} Werkzeugen auch in deutschsprachigen Texten möglich ist. Anhand dessen
+% soll sie analysieren, wie viele der gefundenen Zitate von Männern sind und wie viele von Frauen.
+
+\section{Evaluation der Ziele}
+
+Die vorliegende Arbeit hatte zwei grosse Ziele. Beide sind zuvor noch nie umgesetzt worden,
+sofern wir das ermitteln konnten.
+
+\begin{itemize}
+    \item Die Arbeit sollte aufzeigen, inwiefern das Erkennen von Zitaten mittels \gl{nlp} Werkzeugen auch in deutschsprachigen Texten möglich ist.
+    \item Sie sollte den \gl{gendergap} anhand der Anzahl Zitate von Männern und Frauen in den gesammelten Texten bestimmen
+    und diesen mit den verwandten Arbeiten vergleichen.
+\end{itemize}
+
+Aus diesen zwei Hauptzielen ergaben sich Zwischenziele, die wir ebenfalls festhalten möchten.
+Das erreichen dieser Zwischenschritte war essenziell für das Bestimmen des \gl{gendergap}s.
+\begin{itemize}
+    \item Der Algorithmus zum Bestimmen des Gender Gaps muss Personen und dazugehörige
+    Informationen aus den Artikel Texten extrahieren können.
+    \item Die Software soll in der Lage sein, das Geschlecht der identifizierten Personen zu bestimmen.
+\end{itemize}
+
+\subsection{Erkennen der Zitate}
+
+Mithilfe des erstellten Programms konnten wir zeigen, dass das Erkennen von Zitaten mithilfe von \gl{nlp} Werkzeugen
+auch in deutschschweizer online-Artikeln möglich ist. So konnte der Algorithmus in einem Datensatz
+mit 351'021 einzigartigen Artikeln 133'443 Zitate extrahieren.
+
+Innerhalb von zwei Wochen war es uns
+möglich, schätzungsweise 60\% aller \textsl{Syntaktischen Zitate} zu extrahieren.
+Wir sind überzeugt, dass mithilfe eines grösseren Testsets und Verfeinerungen des Algorithmus
+eine höhere Präzision und Verlässlichkeit der Extraktion der \textsl{Syntaktischen Zitate} möglich ist.
+Darauf aufbauend sollte auch die Erkennung der \textsl{Schwimmenden Zitate} möglich sein, vermuten wir.
+Um eine verlässliche Aussage bezüglich des \gl{gendergap}s treffen zu können, müssten diese Verbesserungen und Erweiterungen unbedingt durchgeführt werden.
+
+\subsection{Ermitteln des Gender Gaps}
+
+Das Resultat der durchgeführten Analyse zeigt einen \gl{gendergap} von 50.34\% über alle Zitate auf.
+Der grösste gemessene Gap pro Nachrichtenportal liegt bei 57.7\%, der kleinste bei 41.77\%.
+Die Datengrundlage für diese Auswertung bildet ein bereinigtes Datenset von 351'021 einzigartigen
+deutschsprachigen online-Artikel aus vier Nachrichtenportalen der Deutschschweiz. Die Analyse umfasst
+schätzungsweise 60\% aller \textsl{Syntaktischen Zitate} und 30\% aller Zitate insgesamt.
+
+Die gemessenen Unterschiede in der Anzahl Zitate lassen sich mithilfe der von uns definierten
+\gl{gendergap} Formel (vgl. Abbildung \ref{ggt-formula}) mit anderen Arbeiten vergleichen.
+Der direkteste Vergleich lässt sich mit dem \enquote{Body Count} von Blick aus der \gl{equalvoice}
+Initiative anstellen. Die Print Ausgabe misst dabei einen \gl{gendergap} von 42\%, während unsere
+Daten für das online Portal einen Gap von 49.59\% anzeigen.
+Die Vorbildsstudie \citetitle{gender_gap_tracker} \cite{gender_gap_tracker} misst in den kanadischen Medien
+einen \gl{gendergap} von 42\%.
+\citetitle{does-gender-matter-in-the-news} \cite{does-gender-matter-in-the-news}
+misst je nach Datensatz einen \gl{gendergap} von 53.9\% oder 14.5\%.
+\citetitle{gender_bias_in_media} \cite{gender_bias_in_media} kann einen \gl{gendergap} von 46.71\% nachweisen.
+
+Die berechneten \gl{gendergap}s der verwandten Arbeiten zeichnen ein ähnliches Bild, wie jenes
+der vorliegenden Resultate. Es scheint als würde sich der Unterschied im Raum, der Männern
+und Frauen zugesprochen wird - mit Ausnahmen natürlich - im Bereich von etwa 40\% - 50\% bewegen.
+
+\subsection{Extraktion der Personen}
+Die Kombination von \gl{ner} und \gl{cr} ermöglichte eine weitgehende Extraktion und Identifizierung 
+der im Text genannten Personen. 
+Durch den Einsatz dieser beiden Verfahren konnten die Personen grundsätzlich erfolgreich aus dem Text herausgefiltert werden.
+
+Dennoch ist es wichtig zu betonen, dass die Extraktion von Personen aus Texten keine absolute Gewährleistung für eine fehlerfreie Identifizierung bietet. 
+Es besteht immer die Möglichkeit von Fehlern, insbesondere wenn die Namen mehrdeutig sind, wenn im 
+Text Unklarheiten auftreten oder Verweise auf nicht eindeutige Personen gemacht werden.
+
+\subsection{Bestimmen des Geschlechts einer Person}
+Das Geschlecht konnte bei 87.2\% aller gefundenen Personen, denen ein Zitat zugewiesen wurde, erfolgreich bestimmt werden. 
+Die restlichen 12.8\% der Personen, bei denen das Geschlecht nicht ermittelt werden konnte, sind entweder vermutlich keine 
+tatsächlichen Personen, da sie fälschlicherweise vom \gl{ner} als solche erkannt wurden, oder es handelt sich um Namen, 
+denen kein eindeutiges männliches oder weibliches Geschlecht zugeordnet werden können.
+
+Wir hatten auch die Idee, das Geschlecht der Autorinnen und Autoren der Artikel zu bestimmen. 
+Leider war die Datenqualität der vorliegenden Datengrundlage aus dem Vorgängerprojekt unzureichend. 
+Oftmals waren im Feld \enquote{author} der Datenbank keine Namen, sondern nur unbrauchbare Daten enthalten.
+Wir vermuten, dass Teile des Artikels als Autor:in erkannt wurden, 
+da die Autorinnen und Autoren Informationen häufig am Ende des Texts in einer nicht eindeutigen Form aufgeführt wurden.

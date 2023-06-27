@@ -1,0 +1,30 @@
+\section{Geschlecht identifizieren}\label{identify-gender}
+
+% Liste Vornamen Bund 2021
+% Pronemen Listen
+% Genderzie API
+
+Um das Geschlecht einer Person herauszufinden, werden als Erstes die offiziellen Listen 
+\footnote{https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/geburten-todesfaelle/namen-schweiz.html} 
+von Vornamen aus dem Jahr 2021 des Bundesamts für Statistik konsultiert. 
+Davon gibt es zwei, eine mit männlichen und eine mit weiblichen Vornamen.
+Dann werden die Pronomen der Person, falls vorhanden, verglichen, ob sie wahrscheinlicher männlich oder weiblich sind.
+Wenn die Wahrscheinlichkeit aus den Pronomen und der Liste vom Bundesamts für Statistik unter 66\% liegt, dass es zum einten Geschlecht gehört,
+wird die API von Genderize.io mit dem Vornamen abgefragt. Bei dieser API gibt es jedoch eine Begrenzung von 1000 Requests pro Tag.
+Wenn dieses Limit erreicht ist, wird trotzdem das wahrscheinlichere Geschlecht aus dem Resultat der Liste vom Bundesamts für Statistik und den Pronomen gewählt.
+Das Geschlecht der Person wird dann in der Form eines \textsl{Gender} Enums (vgl. Abbildung \ref{genderized-person-class}) zurückgegeben.
+
+\begin{figure}[H]
+	\begin{lstlisting}[language=Python]
+    class GenderizedPerson(Person):
+        gender: Optional[Gender]  # Unknown => None
+        probability: float
+    
+    class Gender(Enum):
+        UNKNOWN = 0
+        FEMALE = 1
+        MALE = 2        
+	\end{lstlisting}
+	\caption{GenderizedPerson Klasse und Gender Enum}
+	\label{genderized-person-class}
+\end{figure}

@@ -1,0 +1,38 @@
+[
+    {
+        "position_in_text": 517,
+        "citation": "den Einsatz der mobilen Anwendung kritisch zu hinterfragen, «insbesondere auf Geräten, die im geschäftlichen und behördlichen Kontext verwendet werden»",
+        "subject": "Die Prüfer",
+        "citation_verb": "empfehlen"
+    },
+    {
+        "position_in_text": 1310,
+        "citation": "dass ein kleiner Teil der Kommunikation mit den TikTok-Servern (Backend) zusätzlich verschlüsselt werde",
+        "subject": "die Prüfer",
+        "citation_verb": "stellten"
+    },
+    {
+        "position_in_text": 1554,
+        "citation": "Zudem könnten versteckte Funktionen durch die häufigen Updates nahezu unbemerkt «nachgerüstet»",
+        "subject": "die Cybersicherheits-Experten",
+        "citation_verb": "geben"
+    },
+    {
+        "position_in_text": 3809,
+        "citation": "dass es wegen der immensen zeitlichen und personellen Aufwands nicht möglich gewesen sei, die Funktionsweise der App bis ins allerkleinste technische Detail zu prüfen",
+        "subject": "NTC-Testleiter Tobias Castagna",
+        "citation_verb": "erklärte"
+    },
+    {
+        "position_in_text": 4633,
+        "citation": "sie sollten Social-Media-Apps wie TikTok generell zurückhaltend einsetzen, berichtet die NZZ",
+        "subject": "Die Bundeskanzlei",
+        "citation_verb": "empfehle"
+    },
+    {
+        "position_in_text": 5049,
+        "citation": "Die wertvollen geschäftlichen Daten würden auf den Diensthandys in einer isolierten Umgebung bearbeitet, einer sogenannten Sandbox",
+        "subject": "die NZZ",
+        "citation_verb": "fasst"
+    }
+]

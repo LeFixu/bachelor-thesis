@@ -1,0 +1,32 @@
+[
+    {
+        "position_in_text": 666,
+        "citation": "«Wir wollen den Solarausbau fördern. Wir finden es stossend, dass es in der aktuellen Situation mit den hohen Strompreisen einzelne Produzenten von Solarstrom eine sehr tiefe Vergütung erhalten.»",
+        "subject": "Der CKW-Geschäftsführer",
+        "citation_verb": "sagte"
+    },
+    {
+        "position_in_text": 1459,
+        "citation": "«Es ist tatsächlich fragwürdig, dass man solch grosse Preisschwankungen weitergibt und den Eindruck erweckt, dass der Preis so hoch bleibt. Es war eigentlich klar, dass der Preis nicht so hoch bleiben kann.»",
+        "subject": "Swissolar-Geschäftsführer, David Stickelberger",
+        "citation_verb": "ist"
+    },
+    {
+        "position_in_text": 1831,
+        "citation": "«Wir haben im letzten Herbst sehr klar kommuniziert, dass wir Marktpreise zahlen und dass der Tarif abhängig ist von dem, was der Markt hergibt. Das führt natürlich dazu, dass wir bei einem hohen Preis eine hohe Entschädigung zahlen und bei einem tiefen Preis eine tiefe Entschädigung.»",
+        "subject": "der CKW-Geschäftsführer Martin Schwab",
+        "citation_verb": "verweist"
+    },
+    {
+        "position_in_text": 2133,
+        "citation": "die CKW hat die hohen Strompreise im Herbst ausgenutzt, um den anderen Schweizer Energieversorgern tausende Solarstromproduzenten abzuwerben",
+        "subject": "Kritiker",
+        "citation_verb": "sagen"
+    },
+    {
+        "position_in_text": 2342,
+        "citation": "«Das ist alles andere als ein Marketingcoup. Das hat nicht zuletzt dazu geführt, dass andere Stromunternehmen, die Solarstrom abnehmen, ihre Tarife erhöht haben. Das war sehr gut für Solarstromproduzenten.»",
+        "subject": "Martin Schwab",
+        "citation_verb": "wissen"
+    }
+]

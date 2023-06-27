@@ -1,0 +1,105 @@
+\chapter{Technische Umsetzung}
+
+Die technische Umsetzung der durchgeführten Analyse ist von der
+Pipeline Architektur inspiriert. Die geschriebenen Skripts profitieren
+von der isolierten Natur der Aufgabe und wenden wo immer möglich
+funktionale Prinzipien wie Immutability, Higher Order- und Pure Functions
+an.
+
+Die untenstehende Abbildung \ref{flowchart-aggregation} zeigt den
+grundsätzlichen Ablauf der Analyse der Daten. Dabei implementiert
+die Software sowohl Aspekte des Batch- wie auch des Stream Processings.
+Einerseits läuft die Auswertung von Anfang bis zum Schluss auf dem gesamten
+Datensatz durch, andererseits nutzt sie einen MongoDB Cursor, der die
+Artikel aus der DB Stück für Stück herunterlädt (streamt). Dieser Cursor ermöglicht
+es dem Programm, bereits heruntergeladene Artikel zu analysieren und nach
+Abschluss wieder aus dem Speicher zu löschen, um Ressourcen zu schonen.
+Des Weiteren verwendet das Skript einen Processor Pool, der die gleichmässige
+Verteilung der Last auf alle CPU Kerne garantiert und damit die zur Verfügung
+stehenden Ressourcen ganz ausnutzt.
+
+\begin{figure}[H]
+	\begin{center}
+        \centering
+		\includegraphics[width=1\linewidth]{./images/aggregate.png}
+	\end{center}
+	\caption{Ablaufdiagramm der Auswertung}
+	\label{flowchart-aggregation}
+\end{figure}
+
+Die Abbildung \ref{aggregation-function} zeigt den Python Code,
+der über den Prozessor Pool auf die einzelnen CPU Kerne verteilt wird.
+Diese Funktion konsumiert Artikel aus der \enquote{articles\_queue},
+einer Multiprocessing-sicheren Datenstruktur, die nach und nach vom
+MongoDB Cursor mit Artikeln aus der DB gefüllt wird.
+Die Funktion läuft so lange, bis sie für mindestens zehn Minuten
+keine neuen Artikel in der Queue mehr findet. Der Grund für dieses eher hohe
+Timeout sind mögliche Netzwerkprobleme oder andere unvorhergesehene
+Unterbrüche. Bei Verarbeitung solch grosser Datenmengen fallen die
+zusätzlichen 10 Minuten nicht ins Gewicht und sind betreffend
+Performanz zu vernachlässigen.
+Nach dem Erhalt eines neuen Artikels bestimmt der Algorithmus,
+ob der aktuelle Artikel bereits analysiert wurde.
+Falls ja, verwirft er ihn wieder und holt sich einen neuen.
+Danach beginnt die effektive Analyse. Einzelne Funktionen daraus sind
+in den nachfolgenden Kapiteln näher beschrieben.
+Als nächstes bestimmt die Funktion das Geschlecht des Autors, danach durchsucht
+sie den Text nach Personen und Zitaten. Zum Schluss weist sie
+die gefundenen Personen den gefundenen Zitaten zu und speichert das
+Resultat in der Datenbank.
+Wenn die Abfrage der Queue in ein Timeout läuft (zehn Minuten), dann
+wirf die Funktion eine \enquote{Empty} Exception, die vom \enquote{except}
+Block abgefangen wird und dazu führt, dass die Funktion und damit der
+Prozess beendet wird.
+
+\begin{figure}[H]
+    \begin{lstlisting}[language=Python]
+def _analyze_article(processor_nr: int) -> None:
+    log.info("Starting processor %d", processor_nr)
+    while True:
+        try:
+            article_dict = articles_queue.get(
+                timeout=600
+            )  # 10min, in case of network issues
+
+            if article_dict["_id"] in analyzed_articles:
+                continue
+
+            builder = ArticleBuilder()
+            article = builder.from_db_result(article_dict).build()
+
+            genderized_author = get_genderized_person(
+                get_person_from_string(article["author"])
+            )
+
+            article_text = article["text"]
+            people = get_people_from_string(article_text)
+            genderized_people = map(get_genderized_person, people)
+
+            citations = get_syntactic_quotes(article_text)
+            citations_with_person = assign_people_to_citations(
+                genderized_people, citations
+            )
+
+            analyzed_article = get_analyzed_article(
+                article, genderized_author, citations_with_person
+            )
+            insert_analyzed_article(analyzed_article)
+
+        except Empty:
+            log.info("Queue is empty! Terminating processor %d!", processor_nr)
+            return
+    \end{lstlisting}
+    \caption{Funktion: \_analyze\_article()}
+    \label{aggregation-function}
+\end{figure}
+
+\input{content/technische-umsetzung/daten-bereinigen.tex}
+
+\input{content/technische-umsetzung/db-design.tex}
+
+\input{content/technische-umsetzung/personen-finden.tex}
+
+\input{content/technische-umsetzung/geschlecht-finden.tex}
+
+\input{content/technische-umsetzung/zitate-extrahieren.tex}

@@ -1,0 +1,32 @@
+[
+    {
+        "first_name": "Sergio",
+        "last_name": "Ermotti",
+        "salutation": [],
+        "pronouns_and_articles": ["Er", "Der", "seine", "er"],
+        "substitute_nouns": [],
+        "positions_in_text": [8,358,577,1341,1387,1806,2174],
+        "gender": "MALE",
+        "probability": 0.8
+    },
+    {
+        "first_name": "Ralph",
+        "last_name": "Hamers",
+        "salutation": [],
+        "pronouns_and_articles": ["der"],
+        "substitute_nouns": [],
+        "positions_in_text": [97],
+        "gender": "MALE",
+        "probability": 0.8
+    },
+    {
+        "first_name": "Oswald",
+        "last_name": "Grübel",
+        "salutation": [],
+        "pronouns_and_articles": [],
+        "substitute_nouns": [],
+        "positions_in_text": [1421],
+        "gender": "MALE",
+        "probability": 0.8
+    }
+]

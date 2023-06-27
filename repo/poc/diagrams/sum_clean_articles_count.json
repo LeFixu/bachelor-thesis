@@ -1,0 +1,6 @@
+[
+    { "source" : "20min", "count" : 20487 },
+    { "source" : "Watson", "count" : 62381 },
+    { "source" : "Blick", "count" : 194881 },
+    { "source" : "SRF", "count" : 73272 } 
+]

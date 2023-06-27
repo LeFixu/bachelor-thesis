@@ -1,0 +1,734 @@
+{
+    "quotation_type": "syntactic",
+    "citations_found": 60,
+    "citations_count": 98,
+    "recall": 0.5980223123732251,
+    "quality_grade": 0.7709265346590104,
+    "portal_grades": [
+        {
+            "portal": "srf",
+            "citations_found": 9,
+            "citations_count": 15,
+            "recall": 0.6,
+            "quality_grade": 0.8908829108674989,
+            "article_grades": [
+                {
+                    "article_id": 1,
+                    "citations_found": 1,
+                    "citations_count": 2,
+                    "recall": 0.5,
+                    "quality_grade": 1.0,
+                    "citation_grades": [
+                        {
+                            "citation_id": 3061,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 0,
+                    "citations_found": 1,
+                    "citations_count": 2,
+                    "recall": 0.5,
+                    "quality_grade": 0.7984612969068927,
+                    "citation_grades": [
+                        {
+                            "citation_id": 547,
+                            "subject_grade": 0.6181818181818182,
+                            "citation_grade": 0.7772020725388601,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.7984612969068927
+                        }
+                    ]
+                },
+                {
+                    "article_id": 2,
+                    "citations_found": 2,
+                    "citations_count": 3,
+                    "recall": 0.6666666666666666,
+                    "quality_grade": 0.7794022092267706,
+                    "citation_grades": [
+                        {
+                            "citation_id": 590,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 767,
+                            "subject_grade": 0.21052631578947367,
+                            "citation_grade": 0.2777777777777778,
+                            "verb_grade": 0.5263157894736842,
+                            "final_grade": 0.3382066276803119
+                        },
+                        {
+                            "citation_id": 1310,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 3,
+                    "citations_found": 3,
+                    "citations_count": 3,
+                    "recall": 1.0,
+                    "quality_grade": 0.9924930771893389,
+                    "citation_grades": [
+                        {
+                            "citation_id": 515,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1007,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1515,
+                            "subject_grade": 0.9532710280373832,
+                            "citation_grade": 0.9791666666666666,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9774792315680166
+                        }
+                    ]
+                },
+                {
+                    "article_id": 4,
+                    "citations_found": 2,
+                    "citations_count": 5,
+                    "recall": 0.4,
+                    "quality_grade": 0.8840579710144927,
+                    "citation_grades": [
+                        {
+                            "citation_id": 641,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.30434782608695654,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.7681159420289855
+                        },
+                        {
+                            "citation_id": 2134,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "portal": "watson",
+            "citations_found": 17,
+            "citations_count": 29,
+            "recall": 0.5862068965517241,
+            "quality_grade": 0.6220580385791764,
+            "article_grades": [
+                {
+                    "article_id": 1,
+                    "citations_found": 4,
+                    "citations_count": 6,
+                    "recall": 0.6666666666666666,
+                    "quality_grade": 0.7932685685739264,
+                    "citation_grades": [
+                        {
+                            "citation_id": 508,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1290,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 3802,
+                            "subject_grade": 0.02857142857142857,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.6761904761904762
+                        },
+                        {
+                            "citation_id": 4734,
+                            "subject_grade": 0.25,
+                            "citation_grade": 0.267515923566879,
+                            "verb_grade": 0.35294117647058826,
+                            "final_grade": 0.2901523666791557
+                        },
+                        {
+                            "citation_id": 5209,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 0,
+                    "citations_found": 5,
+                    "citations_count": 8,
+                    "recall": 0.625,
+                    "quality_grade": 0.662564978070181,
+                    "citation_grades": [
+                        {
+                            "citation_id": 339,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 881,
+                            "subject_grade": 0.12903225806451613,
+                            "citation_grade": 0.272108843537415,
+                            "verb_grade": 0.6,
+                            "final_grade": 0.33371370053397703
+                        },
+                        {
+                            "citation_id": 2012,
+                            "subject_grade": 0.32,
+                            "citation_grade": 0.2358490566037736,
+                            "verb_grade": 0.36363636363636365,
+                            "final_grade": 0.30649514008004575
+                        },
+                        {
+                            "citation_id": 2143,
+                            "subject_grade": 0.34146341463414637,
+                            "citation_grade": 0.20915032679738563,
+                            "verb_grade": 0.26666666666666666,
+                            "final_grade": 0.27242680269939956
+                        },
+                        {
+                            "citation_id": 2251,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 2391,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.6304347826086957,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8768115942028986
+                        },
+                        {
+                            "citation_id": 4418,
+                            "subject_grade": 0.8654970760233918,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9551656920077972
+                        },
+                        {
+                            "citation_id": 5056,
+                            "subject_grade": 0.2909090909090909,
+                            "citation_grade": 0.37681159420289856,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.5559068950373298
+                        }
+                    ]
+                },
+                {
+                    "article_id": 2,
+                    "citations_found": 5,
+                    "citations_count": 9,
+                    "recall": 0.5555555555555556,
+                    "quality_grade": 0.8598898727096316,
+                    "citation_grades": [
+                        {
+                            "citation_id": 648,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1419,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9931972789115646,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9977324263038548
+                        },
+                        {
+                            "citation_id": 2034,
+                            "subject_grade": 0.5862068965517241,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8620689655172413
+                        },
+                        {
+                            "citation_id": 3078,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 4088,
+                            "subject_grade": 0.32786885245901637,
+                            "citation_grade": 0.19574468085106383,
+                            "verb_grade": 0.375,
+                            "final_grade": 0.2995378444366934
+                        },
+                        {
+                            "citation_id": 5455,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 3,
+                    "citations_found": 0,
+                    "citations_count": 1,
+                    "recall": 0.0,
+                    "quality_grade": 0.0,
+                    "citation_grades": []
+                },
+                {
+                    "article_id": 4,
+                    "citations_found": 3,
+                    "citations_count": 5,
+                    "recall": 0.6,
+                    "quality_grade": 0.7945667735421433,
+                    "citation_grades": [
+                        {
+                            "citation_id": 296,
+                            "subject_grade": 0.19444444444444445,
+                            "citation_grade": 0.13592233009708737,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.44345559151384395
+                        },
+                        {
+                            "citation_id": 597,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.617737003058104,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.872579001019368
+                        },
+                        {
+                            "citation_id": 989,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.5948275862068966,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8649425287356322
+                        },
+                        {
+                            "citation_id": 2027,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.991869918699187,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.997289972899729
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "portal": "20min",
+            "citations_found": 10,
+            "citations_count": 20,
+            "recall": 0.5,
+            "quality_grade": 0.7256282031924435,
+            "article_grades": [
+                {
+                    "article_id": 1,
+                    "citations_found": 3,
+                    "citations_count": 6,
+                    "recall": 0.5,
+                    "quality_grade": 1.0,
+                    "citation_grades": [
+                        {
+                            "citation_id": 12,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1023,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1702,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 0,
+                    "citations_found": 2,
+                    "citations_count": 3,
+                    "recall": 0.6666666666666666,
+                    "quality_grade": 0.8210935592983925,
+                    "citation_grades": [
+                        {
+                            "citation_id": 2039,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.2809917355371901,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.7603305785123967
+                        },
+                        {
+                            "citation_id": 2453,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.6455696202531646,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8818565400843882
+                        }
+                    ]
+                },
+                {
+                    "article_id": 2,
+                    "citations_found": 0,
+                    "citations_count": 2,
+                    "recall": 0.0,
+                    "quality_grade": 0.0,
+                    "citation_grades": []
+                },
+                {
+                    "article_id": 3,
+                    "citations_found": 2,
+                    "citations_count": 4,
+                    "recall": 0.5,
+                    "quality_grade": 1.0,
+                    "citation_grades": [
+                        {
+                            "citation_id": 87,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 636,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 4,
+                    "citations_found": 3,
+                    "citations_count": 5,
+                    "recall": 0.6,
+                    "quality_grade": 0.8070474566638249,
+                    "citation_grades": [
+                        {
+                            "citation_id": 234,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 625,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 856,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 937,
+                            "subject_grade": 0.23529411764705882,
+                            "citation_grade": 0.2826086956521739,
+                            "verb_grade": 0.16666666666666666,
+                            "final_grade": 0.2281898266552998
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "portal": "blick",
+            "citations_found": 24,
+            "citations_count": 34,
+            "recall": 0.7058823529411765,
+            "quality_grade": 0.8451369859969229,
+            "article_grades": [
+                {
+                    "article_id": 1,
+                    "citations_found": 8,
+                    "citations_count": 10,
+                    "recall": 0.8,
+                    "quality_grade": 0.9526452854315108,
+                    "citation_grades": [
+                        {
+                            "citation_id": 481,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 788,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.987012987012987,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9956709956709957
+                        },
+                        {
+                            "citation_id": 1220,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.7044534412955465,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9014844804318488
+                        },
+                        {
+                            "citation_id": 1438,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9883720930232558,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9961240310077519
+                        },
+                        {
+                            "citation_id": 1918,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.993103448275862,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9977011494252873
+                        },
+                        {
+                            "citation_id": 2764,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.7586206896551724,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9195402298850575
+                        },
+                        {
+                            "citation_id": 3149,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.8584474885844748,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9528158295281582
+                        },
+                        {
+                            "citation_id": 3781,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.5734767025089605,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8578255675029869
+                        }
+                    ]
+                },
+                {
+                    "article_id": 0,
+                    "citations_found": 4,
+                    "citations_count": 5,
+                    "recall": 0.8,
+                    "quality_grade": 0.9982986111111112,
+                    "citation_grades": [
+                        {
+                            "citation_id": 518,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9895833333333334,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9965277777777778
+                        },
+                        {
+                            "citation_id": 956,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.99,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9966666666666667
+                        },
+                        {
+                            "citation_id": 1365,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 2595,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 2,
+                    "citations_found": 3,
+                    "citations_count": 4,
+                    "recall": 0.75,
+                    "quality_grade": 0.7708784018953841,
+                    "citation_grades": [
+                        {
+                            "citation_id": 132,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1031,
+                            "subject_grade": 0.2127659574468085,
+                            "citation_grade": 0.09174311926605505,
+                            "verb_grade": 0.2857142857142857,
+                            "final_grade": 0.19674112080904976
+                        },
+                        {
+                            "citation_id": 1091,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.6603174603174603,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8867724867724868
+                        },
+                        {
+                            "citation_id": 1679,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                },
+                {
+                    "article_id": 3,
+                    "citations_found": 5,
+                    "citations_count": 9,
+                    "recall": 0.5555555555555556,
+                    "quality_grade": 0.799813251171766,
+                    "citation_grades": [
+                        {
+                            "citation_id": 863,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1129,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9824561403508771,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9941520467836257
+                        },
+                        {
+                            "citation_id": 2082,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9914529914529915,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9971509971509972
+                        },
+                        {
+                            "citation_id": 2390,
+                            "subject_grade": 0.8837209302325582,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9612403100775194
+                        },
+                        {
+                            "citation_id": 2688,
+                            "subject_grade": 0.14814814814814814,
+                            "citation_grade": 0.32116788321167883,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.4897720104532757
+                        },
+                        {
+                            "citation_id": 2816,
+                            "subject_grade": 0.125,
+                            "citation_grade": 0.22972972972972974,
+                            "verb_grade": 0.18181818181818182,
+                            "final_grade": 0.17884930384930386
+                        },
+                        {
+                            "citation_id": 2865,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9325842696629213,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9775280898876404
+                        }
+                    ]
+                },
+                {
+                    "article_id": 4,
+                    "citations_found": 4,
+                    "citations_count": 6,
+                    "recall": 0.6666666666666666,
+                    "quality_grade": 0.7040493803748424,
+                    "citation_grades": [
+                        {
+                            "citation_id": 568,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.9736842105263158,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9912280701754386
+                        },
+                        {
+                            "citation_id": 1040,
+                            "subject_grade": 1.0,
+                            "citation_grade": 1.0,
+                            "verb_grade": 1.0,
+                            "final_grade": 1.0
+                        },
+                        {
+                            "citation_id": 1625,
+                            "subject_grade": 1.0,
+                            "citation_grade": 0.8130081300813008,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.9376693766937669
+                        },
+                        {
+                            "citation_id": 2671,
+                            "subject_grade": 0.19047619047619047,
+                            "citation_grade": 0.14339622641509434,
+                            "verb_grade": 0.18181818181818182,
+                            "final_grade": 0.17189686623648887
+                        },
+                        {
+                            "citation_id": 3188,
+                            "subject_grade": 0.9743589743589743,
+                            "citation_grade": 0.5871559633027523,
+                            "verb_grade": 1.0,
+                            "final_grade": 0.8538383125539089
+                        },
+                        {
+                            "citation_id": 3520,
+                            "subject_grade": 0.16666666666666666,
+                            "citation_grade": 0.1978798586572438,
+                            "verb_grade": 0.4444444444444444,
+                            "final_grade": 0.26966365658945163
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+\subsection{Methodik der Literaturanalyse}
+
+% Intro Text Begründung weshalb
+Um die Resultate der Arbeit in Kontext setzen zu können und Inspiration von existierender Forschung zu erhalten,
+war es für uns - aber auch für den Erfolg der Arbeit - wichtig, den aktuellen Stand der Forschung aufzuarbeiten.
+Da die Menge an zur Verfügung stehenden Informationen sehr gross ist, war ein methodischer Ansatz gefragt.
+Mithilfe unserer Betreuerin, Prof. Dr. Mascha Kurpicz-Briki,  haben wir die nachfolgende Herangehensweise besprochen, 
+um die wichtigste Literatur abdecken zu können.
+
+% Grundsätzliches Vorgehen
+Die erarbeitete Methodik sah vor, dass als Erstes die relevantesten Portale von wissenschaftlichen Arbeiten
+identifiziert werden sollten. Als wir diese definiert hatten, suchten wir als Nächstes einen Filter, der die Arbeiten auf etwa 100
+potenziell relevante Artikel eingrenzen sollte. Aus diesem Kandidatenset wollten wir im Anschluss die Abstracts
+durchlesen, um mindestens fünf und maximal 20 vergleichbare Arbeiten zu finden. Diese galt es dann, als Ganzes
+zu lesen und in den nachfolgenden Unterkapiteln der Literaturrecherche zusammenzufassen.
+
+\subsubsection{Auswahl der Portale}
+Für die Auswahl der Portale stützten wir uns auf die Empfehlungen unserer Betreuerin und ergänzten diese mit
+einer weiteren, uns bekannten Plattform. Schlussendlich durchsuchten wir die folgenden drei online Datenbanken mit
+wissenschaftlichen Artikeln.
+\begin{itemize}
+    \item ACM\footnote{https://dl.acm.org}
+    \item IEEE\footnote{https://ieeexplore.ieee.org}
+    \item PLOS\footnote{https://journals.plos.org}
+\end{itemize}
+ACM und IEEE sind bekannte Datenbanken für wissenschaftliche Arbeiten aus der Informatik. PLOS ergänzt diese Auswahl mit einer sozialwissenschaftlichen Perspektive.
+
+\subsubsection{Filterung der Portale}
+Der Filter sollte so eng gefasst sein, dass er möglichst viele irrelevante Arbeiten ausschliesst, gleichzeitig
+aber auch offen genug sein, damit wir eine genügend grosse Resultatliste erhalten. Um die geeignete Abfrage zu finden,
+mussten wir Variationen des Filters ausprobieren, bis wir mit der Grösse des Resultats zufrieden waren.
+
+Schlussendlich sollte unser Filter alle Artikel bezüglich \gl{gendergap} oder Bias in den Medien ausgeben.
+Dies indem er die Abstracts nach Stichwörtern wie \enquote{gender}, \enquote{media} und \enquote{equality}
+durchsucht. Damit wollten wir möglichst viele Arbeiten zum Thema \gl{gendergap} in den Online-Medien
+finden. Die nachfolgende Abbildung \ref{plos-query} zeigt das entsprechende Query
+für die Plattform PLOS.
+
+\begin{figure}[h]
+    \begin{verbatim}
+                    (abstract:gender) AND 
+                    (
+                        (abstract:media) OR 
+                        (abstract:news)
+                    ) AND 
+                    (
+                        (abstract:gap) OR 
+                        (abstract:inequality) OR 
+                        (abstract:equality) OR 
+                        (abstract:bias)
+                    ) AND NOT
+                    (
+                        (abstract:"social media") OR 
+                        (abstract:pandemic) OR 
+                        (abstract:covid)
+                    )
+    \end{verbatim}
+    \caption{Query zur Suche der relevanten Literatur}
+    \label{plos-query}
+\end{figure}
+
+Da die ursprüngliche Liste viele Artikel zu Social Media Themen oder der Covid Pandemie enthielt, haben wir diese explizit
+ausgeschlossen.
+
+\subsubsection{Manuelle Aussortierung anhand der Abstracts}
+Die Anwendung dieses Filters resultierte in einer Liste von 115 Arbeiten, deren Abstracts wir im Anschluss durchlasen
+und dazu jeweils drei Fragen beantworteten.
+
+\begin{enumerate}
+    \item Befasst sich der Artikel mit Geschlechter(un)gleichheit in den Medien?
+    \item Sind die untersuchten Medien textbasiert?
+    \item Wurde die Auswertung mithilfe von \gl{nlp} durchgeführt?
+\end{enumerate}
+
+Schlussendlich entschieden wir uns dazu, diejenigen Arbeiten zu verwenden, bei denen wir die ersten zwei Fragen mit
+\enquote{Ja} beantworten konnten. Die dritte Frage hätte uns geholfen, die Liste weiter einzuschränken, wären
+mit den ersten zwei noch zu viele Arbeiten übrig geblieben.
+
+Bei der Auswertung der Liste haben wir definiert, was wir unter textbasierten Medien alles einschliessen wollen.
+Wir entschieden uns dazu, Nachrichtenportale und wissenschaftliche Arbeiten als Medien zu definieren, Schulbücher
+und Kinderbücher jedoch aus dieser Definition auszuschliessen.
+
+Nach dieser manuellen Suche nach den relevantesten Arbeiten enthielt unsere Liste noch acht Artikel aus den Portalen PLOS und ACM.
+
+\subsubsection{Analyse der Arbeiten}
+Diese acht Arbeiten haben wir im Anschluss gelesen und in den nachfolgenden Kapiteln zusammengefasst. Der Fokus lag
+dabei auf den Themen der Geschlechter(un)gleichheit und den Analysemethoden, die der unseren ähneln. Für diese Arbeit irrelevante
+Themen, die ebenfalls in den Artikeln beschrieben wurden, haben wir weggelassen, um die Arbeit nicht unnötig zu verlängern.
+
+\subsubsection{Abweichungen von der Methode}
+In zwei Fällen sind wir von der oben beschriebenen Methodik abgewichen. Wir kannten aus der Vorarbeit noch einen
+weiteren Forschungsartikel, der uns relevant für unsere Arbeit schien. Dieser war in der Liste jedoch nicht enthalten, da er aus einem
+anderen Portal stammt. Es handelt sich dabei um die Arbeit namens \citetitle{gender_bias_in_media} \cite{gender_bias_in_media}.
+Die Zusammenfassung dieser Arbeit finden Sie zusätzlich zu den anderen in den nachfolgenden Seiten. Die zweite Abweichung
+ist der Ausschluss der Arbeit \citetitle{iet-minoritized-communities} \cite{iet-minoritized-communities}. Es hat sich herausgestellt,
+dass dieser Artikel keine Untersuchung beschreibt, sondern die Zusammensetzung und Stossrichtung einer geplanten Forschungsgruppe.
+Diese wird unter anderem auch die Geschlechter(un)gleicheit in den Medien untersuchen. Im vorliegenden Paper ist jedoch noch kein
+Ergebnis vorhanden. Diese Tatsache war im Abstract jedoch nicht klar beschrieben.

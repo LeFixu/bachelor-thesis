@@ -1,0 +1,87 @@
+\newpage
+\section{Personen extrahieren}\label{people-extraction}
+
+% 1. NER Entitäten mit Personen Tag aus Text lesen
+% 2. Mit Coreference resolution Personen Cluster bekommen
+% 3. NER Coreference und Coref-Res Entitäten verbinden um eindeutige Personen zu bekommen mithilfe der Schnittmenge der Wörter
+% Dabei wird aus den Coreference Einträge neben Vornamen und Nachnamen der Person auch noch Pronomen und Artikel herausgelesen mit POS und der Person zugewiesen.
+% diese sind dann zusätzlich zum Vornamen hilfreich für das Geschlecht der Person zu bestimmen.
+
+Das Extrahieren von Personen aus einem Text umfasst mehrere Schritte.
+Zunächst werden die Entitäten mit dem Tag \enquote{Person} mithilfe von \gl{ner} aus dem Text herausgelesen.
+Als Nächstes wird \gl{cr} verwendet, um Personencluster zu bilden. 
+Dies bedeutet, dass der Text auf Referenzen zu Personen überprüft wird, z.B. wenn eine Person im Text als \enquote{sie} oder \enquote{er} bezeichnet wird. 
+\gl{cr} hilft dabei, alle Referenzen auf dieselbe Person zu identifizieren und in Gruppen zu organisieren.
+Um eindeutige Personen zu erhalten, müssen die NER-Entitäten und die Coreference-Entitäten zusammengeführt werden.
+
+Dazu werden die Schnittmengen der Wörter verwendet, die den NER- und Coreference-Entitäten zugeordnet sind.
+Auf diese Weise können Personen und zugehörige Informationen eindeutig identifiziert werden.
+Zusätzlich zu den Vornamen und Nachnamen der Person werden auch Pronomen und Artikel, die mit der Person in Verbindung stehen aus der Coreference-Entität, mithilfe von \gl{pos} 
+extrahiert und der Person der pronouns\_and\_articles Liste zugewiesen. 
+Damit die Zuordnung von den Zitaten zu den Personen im nächsten Schritt einfacher ist, speichern wir die Positionen im Text wo die Personen genannt wurde auch ab unter dem positions\_in\_text Attribut der Person Klasse.
+Weil \gl{ner} Entitäten zusätzlich zum Namen auch Titel wie \enquote{Prinz} oder \enquote{Herzogin} haben können, 
+wurden diese mithilfe einer eigens definierten Liste erkannt und unter dem substitute\_nouns Attribut abgelegt. 
+All das wird in der Funktion \_\_get\_people\_from\_ner\_coref (vgl. Abbildung\ref{get-people-from-ner-coref}) gemacht, welche als Input eine Liste der \gl{ner} und \gl{cr} Entitäten bekommt.
+Die zusätzlichen Informationen, welche der Algorithmus mittels der Coreference-Entität zur Person erhält, sind im nächsten Schritt hilfreich, um das Geschlecht der Person zu bestimmen.
+Der Rückgabewert der Funktion ist eine Liste von \textsl{Person} Objekten. Diese Klasse ist in der Abbildung \ref{person-class} ersichtlich.
+
+\begin{figure}[H]
+    \begin{lstlisting}[language=Python]
+        def __get_people_from_ner_coref(
+            ner_people_list: List[Tuple[List[str], List[int]]], 
+            coref_list: List[str]
+        ) -> List[Person]:
+            """
+            This method creates people with the help of the NER list and the coref list
+            """
+            people = []
+        
+            for person_words in ner_people_list:
+                new_person = Person("", "", [], [], [], [])
+                for person_word in person_words[0]:
+                    for coref_entry in coref_list:
+                        if person_word.lower() in coref_entry:
+                            pos_res = nlp(coref_entry)
+                            for word in pos_res:
+                                if word.pos_ == "PRON":
+                                    new_person.pronouns_and_articles.append(word.text)
+                                if word.pos_ == "DET":
+                                    new_person.pronouns_and_articles.append(word.text)
+                                if word.pos_ == "NOUN":
+                                    new_person.substitute_nouns.append(word.text)
+        
+                # handle substitute nouns
+                # z.B. wenn NER Eintrag Prinz Harry ist, dann wird Prinz zu substitute_nouns Liste der Person hinzugefügt
+                person_name = __handle_substitute_nouns(new_person, person_words[0])
+        
+                # wenn keine Namen sondern nur substitute_nouns gefunden,
+                #  dann wird neue Person nicht liste hinzugefügt
+                if len(person_name) > 0:
+                    new_person.first_name = person_name[0]
+                    if len(person_name) > 1:
+                        # um Nachnamen wie "Le Clos" oder "Von Niederhaeusern" zu erkennen
+                        last_name = " ".join(person_name[1:])
+                        new_person.last_name = last_name
+        
+                    new_person.positions_in_text = person_words[1]
+        
+                    people.append(new_person)
+        
+            return people        
+    \end{lstlisting}
+    \caption{Function \_\_get\_people\_from\_ner\_coref}
+    \label{get-people-from-ner-coref}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{lstlisting}[language=Python]
+    class Person:
+        first_name: str
+        last_name: str
+        pronouns_and_articles: list[str]  # z.B.: er, sie, ihr, ihre, sein, seine der, die, das
+        substitute_nouns: list[str]  # z.B.: Informatikerin, Studentin, Schwester, Tochter, Prinz, Experte
+        positions_in_text: list[int]
+	\end{lstlisting}
+	\caption{Person Klasse}
+	\label{person-class}
+\end{figure}

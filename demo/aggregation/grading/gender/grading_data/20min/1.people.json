@@ -1,0 +1,66 @@
+[
+    {
+        "first_name": "Harry",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": ["Seine", "er", "sein", "seine", "der", "dessen"],
+        "substitute_nouns": ["Prinz"],
+        "positions_in_text": [41,970,1236,1404,1735,1867,1965]
+    },
+    {
+        "first_name": "Charles",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": [""],
+        "substitute_nouns": [],
+        "positions_in_text": [75,1875]
+    },
+    {
+        "first_name": "Camilla",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": [],
+        "substitute_nouns": [],
+        "positions_in_text": [121]
+    },
+    {
+        "first_name": "Meghan",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": ["ihres"],
+        "substitute_nouns": [],
+        "positions_in_text": [257,597,980,1954]
+    },
+    {
+        "first_name": "Archie",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": ["seinen"],
+        "substitute_nouns": [],
+        "positions_in_text": [280,514,813,1057]
+    },
+    {
+        "first_name": "Lilibet",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": [],
+        "substitute_nouns": [],
+        "positions_in_text": [310, 1069]
+    },
+    {
+        "first_name": "Omid",
+        "last_name": "Scobie",
+        "salutation": [],
+        "pronouns_and_articles": ["der", "er"],
+        "substitute_nouns": [],
+        "positions_in_text": [710,1201,1490]
+    },
+    {
+        "first_name": "William",
+        "last_name": "",
+        "salutation": [],
+        "pronouns_and_articles": ["der", "er"],
+        "substitute_nouns": ["Prinz"],
+        "positions_in_text": [1548,1887]
+    }
+]

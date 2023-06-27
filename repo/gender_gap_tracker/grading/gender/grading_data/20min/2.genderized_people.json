@@ -1,0 +1,12 @@
+[
+    {
+        "first_name": "Fritz",
+        "last_name": "Schenkel",
+        "salutation": [],
+        "pronouns_and_articles": ["seines", "Er", "er", "er"],
+        "substitute_nouns": [],
+        "positions_in_text": [35,257,412,486,689,882,996,1600],
+        "gender": "MALE",
+        "probability": 0.8
+    }
+]

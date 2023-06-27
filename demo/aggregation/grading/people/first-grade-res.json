@@ -1,0 +1,48 @@
+{
+    "people_type": "normal",
+    "people_found": 3,
+    "people_count": 3,
+    "recall": 1.0,
+    "quality_grade": 0.8,
+    "portal_grades": [
+        {
+            "portal": "20min",
+            "people_found": 3,
+            "people_count": 3,
+            "recall": 1.0,
+            "quality_grade": 0.8,
+            "article_grades": [
+                {
+                    "article_id": 0,
+                    "people_found": 3,
+                    "people_count": 3,
+                    "recall": 1.0,
+                    "quality_grade": 0.8,
+                    "people_grades": [
+                        {
+                            "person_id": 7,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 0.2,
+                            "final_grade": 0.7333333333333334
+                        },
+                        {
+                            "person_id": 96,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 0.0,
+                            "final_grade": 0.6666666666666666
+                        },
+                        {
+                            "person_id": 1419,
+                            "first_name_grade": 1.0,
+                            "last_name_grade": 1.0,
+                            "pronouns_and_articles_grade": 1.0,
+                            "final_grade": 1.0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
